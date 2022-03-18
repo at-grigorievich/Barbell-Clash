@@ -31,15 +31,15 @@ namespace PlayerLogic
 
 
         [Inject]
-        private void Constructor(ILevelSystem levelSystem, IInputable inputService, 
-            ICinemachinable camService)
+        private void Constructor(ILevelSystem levelSystem, IInputable inputService,
+            BarbellLogic.Factory barbelFactory,ICinemachinable camService)
         {
             InputService = inputService;
             CinemachineService = camService;
             
             if (levelSystem.CurrentLevel is BarbellLevelData barbellLevelData)
             {
-                BarbellLogic bl = barbellLevelData.BarbellInitialConfig.InstantiateBarbell();
+                BarbellLogic bl = barbellLevelData.BarbellInitialConfig.InstantiateBarbell(barbelFactory);
                 
                 CinemachineService.InitCinemachine(bl.transform,barbellLevelData.CameraInitialConfig);
                 

@@ -7,20 +7,26 @@ namespace Barbell
         private readonly Transform _transform;
         private readonly float _defaultHeight;
 
+        private readonly ISizeable _maxSize;
 
         private Vector3 _heightDirection;
 
-        public BarbellMovement(Transform transform, float height)
+        public BarbellMovement(Transform transform, float height, ISizeable maxSize)
         {
             _transform = transform;
             _defaultHeight = height;
+
+            _maxSize = maxSize;
         }
 
 
         public void DoMove(Vector3 direction)
         {
             Vector3 endDirection = _transform.position + direction + _heightDirection;
-            endDirection.y = Mathf.Clamp(endDirection.y, 2f, _defaultHeight);
+
+            float min = _maxSize != null ? _maxSize.Radius : 0f;
+            Debug.Log(min);
+            endDirection.y = Mathf.Clamp(endDirection.y, min, _defaultHeight);
 
             _transform.position = endDirection;
         }

@@ -167,6 +167,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cinemachine: {fileID: 374836260}
+--- !u!1 &94924570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 94924571}
+  - component: {fileID: 94924572}
+  m_Layer: 0
+  m_Name: Barbell Factory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &94924571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94924570}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8271954859999457380}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &94924572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94924570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 107e709b2deb47bca60c6026129f500b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &198260622
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,6 +883,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8271954859892743050}
+  - {fileID: 94924571}
   m_Father: {fileID: 8271954860091290226}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -892,6 +936,7 @@ MonoBehaviour:
   - {fileID: 8271954859805305277}
   - {fileID: 8271954859913438695}
   - {fileID: 8271954859892743051}
+  - {fileID: 94924572}
   - {fileID: 1016969500}
   - {fileID: 90399651}
   _installerPrefabs: []

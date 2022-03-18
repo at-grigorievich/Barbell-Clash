@@ -3,6 +3,6 @@
     public interface ISizeable
     {
         float Radius { get; }
-        float Thickness { get; }
+        float Thickness{ get; }
     }
 }

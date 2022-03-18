@@ -9,5 +9,9 @@ namespace Barbell
         
         [field: SerializeField]
         public float Thickness { get; private set; }
+
+        private void Start()
+        {
+        }
     }
 }
