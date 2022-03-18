@@ -10,13 +10,6 @@ namespace PlayerLogic
 
         public void Update()
         {
-#if UNITY_EDITOR
-            if (Input.GetMouseButtonDown(0))
-            {
-                OnStartTouch?.Invoke(this,EventArgs.Empty);
-            }      
-            return;
-#endif
             if (Input.touchCount > 0)
             {
                 TouchPhase phase = Input.GetTouch(0).phase;
@@ -27,6 +20,7 @@ namespace PlayerLogic
                         OnStartTouch?.Invoke(this,EventArgs.Empty);
                         break;
                     case TouchPhase.Ended:
+                    case TouchPhase.Canceled:
                         OnEndTouch?.Invoke(this,EventArgs.Empty);
                         break;
                 }

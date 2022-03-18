@@ -44,7 +44,7 @@ namespace PlayerLogic
                 CinemachineService.InitCinemachine(bl.transform,barbellLevelData.CameraInitialConfig);
                 
                 AllStates.Add(new PlayerBriefState(this,this));
-                AllStates.Add(new PlayerMoveState(this,this));
+                AllStates.Add(new PlayerMoveState(this,this,bl));
                 
                 InitStartState();
                 OnState();
