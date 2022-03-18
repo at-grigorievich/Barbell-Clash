@@ -22,9 +22,9 @@ MonoBehaviour:
   - {fileID: 6768989904039971223, guid: b3403af408816ce489a10b905a80e570, type: 3}
   <BarbellInitialConfig>k__BackingField:
     _barbellPrefab: {fileID: -6838560690504740817, guid: 2b096017011f4b84fb6871e7df42efd2, type: 3}
-    _position: {x: 0, y: 0, z: 0}
+    _position: {x: 0, y: 4, z: 0}
     _rotation: {x: 0, y: 0, z: 0}
   <CameraInitialConfig>k__BackingField:
-    _position: {x: 0, y: 0, z: 0}
-    _rotation: {x: 0, y: 0, z: 0}
-    _fov: 65
+    <CamPosition>k__BackingField: {x: 3, y: 11, z: 5.5}
+    <CamRotation>k__BackingField: {x: 40, y: 345, z: 0}
+    <Fov>k__BackingField: 68
