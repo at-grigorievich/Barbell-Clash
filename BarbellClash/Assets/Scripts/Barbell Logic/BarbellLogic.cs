@@ -1,6 +1,4 @@
-﻿using System;
-using Softbody;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
 namespace Barbell
