@@ -28,13 +28,16 @@ namespace Barbell
             
             foreach (var platePrefab in plates)
             {
-                var instance = 
-                    Instantiate(platePrefab, _minTarget.position, Quaternion.identity, transform);
+                if (Mathf.Abs(_minTarget.position.x) >= Mathf.Abs(_maxTarget.position.x))
+                {
+                    var instance =
+                        Instantiate(platePrefab, _minTarget.position, Quaternion.identity, transform);
 
-                Vector3 nextTarget = _direction.normalized * instance.Thickness;
-                _minTarget.position += nextTarget;
+                    Vector3 nextTarget = _direction.normalized * instance.Thickness;
+                    _minTarget.position += nextTarget;
 
-                _sortedPlates.Add(instance);
+                    _sortedPlates.Add(instance);
+                }
             }
         }
 
