@@ -9,14 +9,14 @@ namespace Softbody
         public event EventHandler OnCrushStart;
         public event EventHandler OnCrushEnd;
         
-        private IKinematic _kinematic;
+        private ICrushable _kinematic;
 
         private void OnTriggerEnter(Collider other)
         {
             if(_kinematic != null || other.attachedRigidbody == null)
                 return;
 
-            if (other.attachedRigidbody.TryGetComponent(out IKinematic kinematic))
+            if (other.attachedRigidbody.TryGetComponent(out ICrushable kinematic))
             {
                 _kinematic = kinematic;
             }
@@ -26,7 +26,7 @@ namespace Softbody
             if(_kinematic == null || other.attachedRigidbody == null)
                 return;
 
-            if (other.attachedRigidbody.TryGetComponent(out IKinematic kinematic))
+            if (other.attachedRigidbody.TryGetComponent(out ICrushable kinematic))
             {
                 if (ReferenceEquals(kinematic, _kinematic))
                 {

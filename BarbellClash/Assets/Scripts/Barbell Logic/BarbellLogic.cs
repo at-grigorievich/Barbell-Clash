@@ -4,12 +4,14 @@ using Zenject;
 namespace Barbell
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class BarbellLogic : MonoBehaviour, IKinematic
+    public class BarbellLogic : MonoBehaviour, IKinematic, ICrushable
     {
         [Inject] private IPlateContainer[] _plateContainers;
         
         private IKinematic _movementLogic;
 
+        public uint MaxPlateId => _plateContainers[0].PlateWithMaxRadius.Id;
+        
         private void Start()
         {
             foreach (var plateContainer in _plateContainers)

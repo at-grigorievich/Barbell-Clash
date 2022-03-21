@@ -1822,6 +1822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0a0a9b569d4a778e76215579a13cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _neededPlateData: {fileID: 11400000, guid: 0d7f3998f488c9a47bb42fcfd7c7ff85, type: 2}
   _mainPart: {fileID: 6487709911445351010}
   _scale: {x: 20, y: 20, z: 20}
 --- !u!1 &6934713021451197957

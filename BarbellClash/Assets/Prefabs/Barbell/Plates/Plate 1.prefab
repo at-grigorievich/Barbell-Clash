@@ -108,5 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b97af94174d747859cc2b790db69913a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: 0d7f3998f488c9a47bb42fcfd7c7ff85, type: 2}
   <Radius>k__BackingField: 3.2
   <Thickness>k__BackingField: 0.63

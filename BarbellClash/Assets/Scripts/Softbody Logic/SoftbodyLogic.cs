@@ -9,15 +9,17 @@ namespace Softbody
     [RequireComponent(typeof(ObiSolver),typeof(ObiFixedUpdater))]
     public abstract class SoftbodyLogic : MonoBehaviour
     {
+        [SerializeField] private PlateData _neededPlateData;
+        [Space(10)]
         [SerializeField] private SoftbodyMainPart _mainPart;
-        
+        [Space(10)]
         [SerializeField] private Vector3 _scale;
-        
+
         protected ObiSolver _solver;
         protected ObiFixedUpdater _obiFixedUpdater;
 
-        protected IKinematic _curKinematic;
-
+        public uint NeededPlateId => _neededPlateData.Id;
+        
         private IEnumerator Start()
         {
             _solver = GetComponent<ObiSolver>();

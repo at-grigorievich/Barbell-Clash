@@ -16,11 +16,11 @@ public class SoftbodyBlock : EnvironmentBlock
 {
     [Space(15)]
     [SerializeField] private SoftbodyLogic _softbodyInstance;
-
+    
     [Space(15)] 
     [SerializeField] private BlockInstanceTarget _instanceOptions;
 
-    private IKinematic _curKinematic;
+    private ICrushable _curKinematic;
     
     public SoftbodyLogic Softbody { get; private set; }
     
@@ -37,11 +37,13 @@ public class SoftbodyBlock : EnvironmentBlock
         if(_curKinematic != null)
             return;
         
-        if (other.attachedRigidbody.TryGetComponent(out IKinematic k))
+        if (other.attachedRigidbody.TryGetComponent(out ICrushable k))
         {
-            _curKinematic = k;
-            
-            Softbody.SetSoftbodyActive(true);
+            if (k.MaxPlateId == Softbody.NeededPlateId)
+            {
+                _curKinematic = k;
+                Softbody.SetSoftbodyActive(true);
+            }
         }
     }
 
@@ -50,7 +52,7 @@ public class SoftbodyBlock : EnvironmentBlock
         if(_curKinematic == null)
             return;
 
-        if (other.attachedRigidbody.TryGetComponent(out IKinematic k))
+        if (other.attachedRigidbody.TryGetComponent(out ICrushable k))
         {
             if (ReferenceEquals(k, _curKinematic))
             {
