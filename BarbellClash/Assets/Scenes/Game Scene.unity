@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SpeedParameters>k__BackingField:
-    <MovementSpeed>k__BackingField: 17
+    <MovementSpeed>k__BackingField: 10
     <DropSpeed>k__BackingField: 60
 --- !u!20 &198260624
 Camera:

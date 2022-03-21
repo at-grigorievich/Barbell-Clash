@@ -1732,9 +1732,9 @@ MonoBehaviour:
     enabled: 0
   particleFrictionConstraintParameters:
     evaluationOrder: 1
-    iterations: 1
-    SORFactor: 1
-    enabled: 0
+    iterations: 2
+    SORFactor: 2
+    enabled: 1
   collisionConstraintParameters:
     evaluationOrder: 1
     iterations: 6
@@ -1742,9 +1742,9 @@ MonoBehaviour:
     enabled: 1
   frictionConstraintParameters:
     evaluationOrder: 1
-    iterations: 1
-    SORFactor: 1
-    enabled: 0
+    iterations: 2
+    SORFactor: 2
+    enabled: 1
   skinConstraintParameters:
     evaluationOrder: 0
     iterations: 3
