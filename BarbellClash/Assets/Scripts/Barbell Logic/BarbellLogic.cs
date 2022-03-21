@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Zenject;
 
 namespace Barbell
@@ -6,10 +7,15 @@ namespace Barbell
     [RequireComponent(typeof(Rigidbody))]
     public class BarbellLogic : MonoBehaviour, IKinematic, ICrushable
     {
+        [Range(0f,10f)]
+        [SerializeField] private float _thickness;
+        
         [Inject] private IPlateContainer[] _plateContainers;
         
         private IKinematic _movementLogic;
 
+        private float _standartHeight;
+        
         public uint MaxPlateId =>
             _plateContainers[0].PlateWithMaxRadius?.Id ?? 100;
         
@@ -23,6 +29,13 @@ namespace Barbell
                 new BarbellMovement(transform, 
                     transform.position.y,
                     _plateContainers[0].PlateWithMaxRadius);
+
+            _standartHeight = transform.position.y;
+        }
+
+        private void Update()
+        {
+            UpdateMovement();
         }
 
         public void DoMove(Vector3 direction) =>
@@ -33,8 +46,29 @@ namespace Barbell
 
         public void DoDown(float downSpeed) =>
             _movementLogic.DoDown(downSpeed);
-        
 
+
+        private void UpdateMovement()
+        {
+            ISizeable _plate = _plateContainers[0].PlateWithMaxRadius;
+            if (_plate != null)
+            {
+                if (!(_movementLogic is BarbellMovement))
+                {
+                    _movementLogic = new BarbellMovement(transform, 
+                        _standartHeight,
+                        _plateContainers[0].PlateWithMaxRadius);
+                }
+            }
+            else
+            {
+                if (!(_movementLogic is BarbellFreeMovement))
+                {
+                    _movementLogic = new BarbellFreeMovement(transform,_standartHeight,_thickness);
+                }
+            }
+        }
+        
         public class Factory: PlaceholderFactory<UnityEngine.Object,BarbellLogic> {}
     }
 }
