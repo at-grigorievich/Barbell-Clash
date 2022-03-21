@@ -15,5 +15,7 @@ namespace Barbell
         public float Thickness { get; private set; }
 
         public uint Id => _data.Id;
+
+        public float RotateSpeed => _data.RotateSpeed;
     }
 }

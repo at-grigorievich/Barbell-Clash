@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Barbell
@@ -18,11 +19,13 @@ namespace Barbell
         private SortedSet<PlateLogic> _sortedPlates = 
             new SortedSet<PlateLogic>(new DescendingContainer());
 
+        private Dictionary<PlateLogic, Tween> _rotatePlates 
+            = new Dictionary<PlateLogic, Tween>();
+
         private float _angle;
-        
+
         public ISizeable PlateWithMaxRadius => _sortedPlates.Count > 0 ? _sortedPlates.Last() : null;
-        
-        
+
         public void InitDefaultPlate()
         {
             PlateLogic[] plates = _defaultPlates.Plates;
@@ -38,7 +41,7 @@ namespace Barbell
 
                     Vector3 nextTarget = _direction.normalized * instance.Thickness;
                     _minTarget.position += nextTarget;
-
+                    
                     _sortedPlates.Add(instance);
 
                     _angle += 45f;
@@ -50,6 +53,40 @@ namespace Barbell
         {
             throw new System.NotImplementedException();
         }
+
+        public void StartRotatePlates()
+        {
+            Vector3 rot = new Vector3(180f, 0f, 0f);
+
+            foreach (var sortedPlate in _sortedPlates)
+            {
+                if (_rotatePlates.ContainsKey(sortedPlate))
+                    continue;
+                
+                Tween rotTween = sortedPlate.transform
+                    .DORotate(rot, sortedPlate.RotateSpeed,RotateMode.LocalAxisAdd)
+                    .SetLoops(-1)
+                    .SetEase(Ease.Linear);
+
+                rotTween.Play();
+                _rotatePlates.Add(sortedPlate, rotTween);
+            }
+        }
+        public void StopRotatePlates()
+        {
+            if(_rotatePlates.Count == 0)
+                return;
+            
+            IEnumerable<Tween> rotatesTweens = _rotatePlates.Values;
+
+            foreach (var tween in rotatesTweens)
+            {
+                tween.Kill();
+            }
+            
+            _rotatePlates.Clear();
+        }
+
         
         private class DescendingContainer: IComparer<PlateLogic>
         {
@@ -59,7 +96,7 @@ namespace Barbell
                     return 1;
                 if (x.Radius < y.Radius)
                     return -1;
-                return 0;
+                return 1;
             }
         }
     }

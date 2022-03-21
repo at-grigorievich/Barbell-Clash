@@ -24,11 +24,6 @@ namespace Barbell
             {
                 plateContainer.InitDefaultPlate();
             }
-            _movementLogic = 
-                new BarbellMovement(transform, 
-                    transform.position.y,
-                    _plateContainers[0].PlateWithMaxRadius);
-
             _standartHeight = transform.position.y;
         }
 
@@ -56,7 +51,9 @@ namespace Barbell
                 {
                     _movementLogic = new BarbellMovement(transform, 
                         _standartHeight,
-                        _plateContainers[0].PlateWithMaxRadius);
+                        _plateContainers[0].PlateWithMaxRadius,
+                        StartAnimatePlatesRotate,
+                        EndAnimatePlatesRotate);
                 }
             }
             else
@@ -67,6 +64,22 @@ namespace Barbell
                 }
             }
         }
+        
+        private void StartAnimatePlatesRotate()
+        {
+            foreach (var plateContainer in _plateContainers)
+            {
+                plateContainer.StartRotatePlates();
+            }
+        }
+        private void EndAnimatePlatesRotate()
+        {
+            foreach (var plateContainer in _plateContainers)
+            {
+                plateContainer.StopRotatePlates();
+            }
+        }
+        
         
         public class Factory: PlaceholderFactory<UnityEngine.Object,BarbellLogic> {}
     }

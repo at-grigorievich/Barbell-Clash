@@ -6,5 +6,8 @@
 
         void InitDefaultPlate();
         void AddPlate(PlateLogic plate);
+
+        void StartRotatePlates();
+        void StopRotatePlates();
     }
 }

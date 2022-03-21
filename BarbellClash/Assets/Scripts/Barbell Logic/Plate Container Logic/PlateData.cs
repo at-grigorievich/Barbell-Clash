@@ -8,5 +8,9 @@ namespace Barbell
         [field: Range(0,100)]
         [field: SerializeField]
         public uint Id { get; private set; }
+        
+        [field: Space(10)]
+        [field: SerializeField]
+        public float RotateSpeed { get; private set; }
     }
 }
