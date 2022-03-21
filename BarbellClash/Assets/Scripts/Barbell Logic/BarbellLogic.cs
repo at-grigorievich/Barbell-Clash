@@ -10,10 +10,14 @@ namespace Barbell
         
         private IKinematic _movementLogic;
 
-        public uint MaxPlateId => _plateContainers[0].PlateWithMaxRadius.Id;
+        public uint MaxPlateId =>
+            _plateContainers[0].PlateWithMaxRadius != null
+                ? _plateContainers[0].PlateWithMaxRadius.Id
+                : 100;
         
         private void Start()
         {
+            Debug.Log(_plateContainers.Length);
             foreach (var plateContainer in _plateContainers)
             {
                 plateContainer.InitDefaultPlate();

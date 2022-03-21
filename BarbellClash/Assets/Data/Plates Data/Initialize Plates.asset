@@ -12,8 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef02718996c445bbacb05315ff574b0, type: 3}
   m_Name: Initialize Plates
   m_EditorClassIdentifier: 
-  <Plates>k__BackingField:
-  - {fileID: 5478243799714677953, guid: 08aa71c475c3c7c469e70ced896a1b90, type: 3}
-  - {fileID: 5478243799714677953, guid: 08aa71c475c3c7c469e70ced896a1b90, type: 3}
-  - {fileID: 5478243799714677953, guid: 08aa71c475c3c7c469e70ced896a1b90, type: 3}
-  - {fileID: 5478243799714677953, guid: 08aa71c475c3c7c469e70ced896a1b90, type: 3}
+  <Plates>k__BackingField: []
