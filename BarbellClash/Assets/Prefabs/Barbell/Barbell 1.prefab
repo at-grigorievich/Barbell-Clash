@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1697675897491102164}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Min Left Target
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7206216807336702293}
   - component: {fileID: 1074347977142231401}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Right Plates Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2088150547584368489}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Max Left Target
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -118,7 +118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3126520541360764367}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Min Right Target
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 7286781411903575487}
   - component: {fileID: 3413393535108223270}
   - component: {fileID: 2166288231298979095}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Straight 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3619681317983920111}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Installers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8383749677666386170}
   - component: {fileID: 8197914748839675373}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Left Plates Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 2896643633959297060}
   - component: {fileID: 9198851584471251718}
   - component: {fileID: 4419118590567447317}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5126790229030668006}
   - component: {fileID: 7779465566536841206}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Plates Service Installer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 6681180426867016931}
   - component: {fileID: 2427543130743844526}
   - component: {fileID: 3752763418143527402}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5035091570540931217}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Max Left Target
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -617,7 +617,7 @@ GameObject:
   - component: {fileID: 8810295190860989912}
   - component: {fileID: 2754077372391783131}
   - component: {fileID: 7976368765021218377}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Barbell 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -656,6 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c0c4659af24ad4984e73815c1a4bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _thickness: 1
 --- !u!54 &8810295190860989912
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -714,7 +715,7 @@ GameObject:
   - component: {fileID: 9221488014620126070}
   - component: {fileID: 9221488014620126072}
   - component: {fileID: 9221488014620126071}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pin (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

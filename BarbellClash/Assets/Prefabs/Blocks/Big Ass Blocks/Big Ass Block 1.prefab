@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6768989903277440142}
   - component: {fileID: 6768989903277440143}
   - component: {fileID: 6768989903277440128}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 6768989904039971240}
   - component: {fileID: 4321737166604718202}
   - component: {fileID: 6651086949906100222}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Big Ass Block 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 6768989904319277764}
   - component: {fileID: 6768989904319277761}
   - component: {fileID: 6768989904319277762}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 6768989904976173266}
   - component: {fileID: 6768989904976173279}
   - component: {fileID: 6768989904976173264}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corner (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,7 +331,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2034526457216756707}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Instance Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}

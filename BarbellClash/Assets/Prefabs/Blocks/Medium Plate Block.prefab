@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6768989903277440143}
   - component: {fileID: 6768989903277440128}
   - component: {fileID: 7551580164561919840}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6768989904039971240}
   - component: {fileID: 6768989904039971223}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Medium Plate Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 6768989904319277764}
   - component: {fileID: 6768989904319277761}
   - component: {fileID: 6768989904319277762}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 6768989904976173266}
   - component: {fileID: 6768989904976173279}
   - component: {fileID: 6768989904976173264}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corner (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
