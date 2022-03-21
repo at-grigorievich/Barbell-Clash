@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using Softbody;
+using UnityEngine;
 using Zenject;
 
 namespace Barbell
@@ -31,6 +33,7 @@ namespace Barbell
         public void DoDown(float downSpeed) =>
             _movementLogic.DoDown(downSpeed);
         
+
         public class Factory: PlaceholderFactory<UnityEngine.Object,BarbellLogic> {}
     }
 }
