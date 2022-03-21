@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Barbell
 {
@@ -11,11 +12,13 @@ namespace Barbell
 
         private Vector3 _heightDirection;
 
+        private Action _movement;
+        
         public BarbellMovement(Transform transform, float height, ISizeable maxSize)
         {
             _transform = transform;
             _defaultHeight = height;
-
+            
             _maxSize = maxSize;
         }
 
@@ -24,7 +27,7 @@ namespace Barbell
         {
             Vector3 endDirection = _transform.position + direction + _heightDirection;
 
-            float min = _maxSize != null ? _maxSize.Radius : 0f;
+            float min = _maxSize?.Radius ?? 0f;
             endDirection.y = Mathf.Clamp(endDirection.y, min, _defaultHeight);
 
             _transform.position = endDirection;
