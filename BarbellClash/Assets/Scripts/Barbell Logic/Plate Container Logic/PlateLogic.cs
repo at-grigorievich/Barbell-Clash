@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = System.Random;
 
 namespace Barbell
 {
@@ -13,6 +15,5 @@ namespace Barbell
         public float Thickness { get; private set; }
 
         public uint Id => _data.Id;
-        
     }
 }
