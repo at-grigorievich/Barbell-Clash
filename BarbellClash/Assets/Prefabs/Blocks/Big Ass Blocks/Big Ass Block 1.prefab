@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6768989903277440142}
   - component: {fileID: 6768989903277440143}
   - component: {fileID: 6768989903277440128}
-  - component: {fileID: 7551580164561919840}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -96,19 +95,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &7551580164561919840
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6768989903277440130}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6768989904039971241
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6768989904039971240}
   - component: {fileID: 4321737166604718202}
+  - component: {fileID: 6651086949906100222}
   m_Layer: 0
   m_Name: Big Ass Block 1
   m_TagString: Untagged
@@ -160,6 +147,19 @@ MonoBehaviour:
   _softbodyInstance: {fileID: 1259037322171359474, guid: 56a74ae9daf575643bfe80d4aea53846, type: 3}
   _instanceOptions:
     <TargetPosition>k__BackingField: {fileID: 2034526457216756707}
+--- !u!65 &6651086949906100222
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6768989904039971241}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.5, y: 15, z: 28}
+  m_Center: {x: 0, y: 8, z: 0}
 --- !u!1 &6768989904319277765
 GameObject:
   m_ObjectHideFlags: 0
