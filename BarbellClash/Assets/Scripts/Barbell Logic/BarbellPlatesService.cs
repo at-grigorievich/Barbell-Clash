@@ -24,8 +24,6 @@ namespace Barbell
         [SerializeField] private float _punchElasticy;
         [SerializeField] private Vector3 _punchVector;
         
-
-
         private SortedSet<PlateLogic> _sortedPlates = 
             new SortedSet<PlateLogic>(new DescendingContainer());
 
@@ -112,6 +110,7 @@ namespace Barbell
 
         private void RemoveAllPlates()
         {
+            StopAllCoroutines();
             Vector3 resetPos = _minTarget.position;
             resetPos.x = _sortedPlates.First().transform.position.x;
 
@@ -150,10 +149,14 @@ namespace Barbell
 
         private IEnumerator AnimateCurrentPlates()
         {
-            foreach (var sortedPlate in _sortedPlates)
+            var plates = (PlateLogic[])_sortedPlates.ToArray<PlateLogic>().Clone();
+            foreach (var sortedPlate in plates)
             {
-                AnimateScale(sortedPlate);
-                yield return new WaitForSeconds(_delay);
+                if (sortedPlate != null)
+                {
+                    AnimateScale(sortedPlate);
+                    yield return new WaitForSeconds(_delay);
+                }
             }
         }
         
