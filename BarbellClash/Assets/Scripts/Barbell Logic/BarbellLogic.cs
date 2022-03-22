@@ -4,7 +4,7 @@ using Zenject;
 namespace Barbell
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class BarbellLogic : MonoBehaviour, IKinematic, ICrushable
+    public class BarbellLogic : MonoBehaviour, IKinematic, ICrushable, IStackable
     {
         [Range(0f,10f)]
         [SerializeField] private float _thickness;
@@ -41,6 +41,13 @@ namespace Barbell
         public void DoDown(float downSpeed) =>
             _movementLogic.DoDown(downSpeed);
 
+        public void AddPlate(PlateLogic platePrafab)
+        {
+            foreach (var plateContainer in _plateContainers)
+            {
+                plateContainer.AddPlate(platePrafab);
+            }
+        }
 
         private void UpdateMovement()
         {

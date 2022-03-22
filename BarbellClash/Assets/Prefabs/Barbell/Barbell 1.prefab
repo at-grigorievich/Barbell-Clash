@@ -79,6 +79,10 @@ MonoBehaviour:
   _direction: {x: 1, y: 0, z: 0}
   _minTarget: {fileID: 3126520541360764367}
   _maxTarget: {fileID: 2088150547584368489}
+  _punchDuration: 0.65
+  _punchVibrato: 10
+  _punchElasticy: 0.5
+  _punchVector: {x: 0, y: 0.9, z: 0.9}
 --- !u!1 &1174047967618095908
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +338,10 @@ MonoBehaviour:
   _direction: {x: -1, y: 0, z: 0}
   _minTarget: {fileID: 1697675897491102164}
   _maxTarget: {fileID: 5035091570540931217}
+  _punchDuration: 0.65
+  _punchVibrato: 10
+  _punchElasticy: 0.5
+  _punchVector: {x: 0, y: 0.9, z: 0.9}
 --- !u!1 &7114022083686286199
 GameObject:
   m_ObjectHideFlags: 0

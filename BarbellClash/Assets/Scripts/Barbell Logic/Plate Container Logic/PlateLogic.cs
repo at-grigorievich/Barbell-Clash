@@ -1,13 +1,17 @@
-﻿using System;
+﻿using System.Linq;
 using UnityEngine;
-using Random = System.Random;
 
 namespace Barbell
 {
     public class PlateLogic : MonoBehaviour, ISizeable
     {
+        [SerializeField] private MeshRenderer[] _renderers;
         [SerializeField] private PlateData _data;
 
+        public Transform[] scaleElement => _renderers
+            .Select(r => r.transform)
+            .ToArray<Transform>();
+        
         [field: SerializeField]
         public float Radius { get; private set; }
         

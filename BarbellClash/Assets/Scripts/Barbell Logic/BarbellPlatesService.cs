@@ -15,7 +15,15 @@ namespace Barbell
         [SerializeField] private Vector3 _direction;
         [SerializeField] private Transform _minTarget;
         [SerializeField] private Transform _maxTarget;
+
+        [Space(10)] [Header("Animation Values")]
+        [SerializeField] private float _punchDuration;
+        [SerializeField] private int _punchVibrato;
+        [SerializeField] private float _punchElasticy;
+        [SerializeField] private Vector3 _punchVector;
         
+
+
         private SortedSet<PlateLogic> _sortedPlates = 
             new SortedSet<PlateLogic>(new DescendingContainer());
 
@@ -33,27 +41,41 @@ namespace Barbell
             
             foreach (var platePrefab in plates)
             {
-                if (Mathf.Abs(_minTarget.position.x) >= Mathf.Abs(_maxTarget.position.x))
-                {
-                    Quaternion rot = Quaternion.Euler(_angle, 0f, 0f);
-                    var instance =
-                        Instantiate(platePrefab, _minTarget.position, rot, transform);
-
-                    Vector3 nextTarget = _direction.normalized * instance.Thickness;
-                    _minTarget.position += nextTarget;
-                    
-                    _sortedPlates.Add(instance);
-
-                    _angle += 45f;
-                }
+                AddPlate(platePrefab);
             }
         }
 
         public void AddPlate(PlateLogic plate)
         {
-            throw new System.NotImplementedException();
+            if (Mathf.Abs(_minTarget.position.x) >= Mathf.Abs(_maxTarget.position.x))
+            {
+                Quaternion rot = Quaternion.Euler(_angle, 0f, 0f);
+                var instance =
+                    Instantiate(plate, _minTarget.position, rot, transform);
+
+                Vector3 nextTarget = _direction.normalized * instance.Thickness;
+                _minTarget.position += nextTarget;
+
+
+                instance.transform
+                    .DOPunchScale(_punchVector, _punchDuration,_punchVibrato,_punchElasticy);
+                
+                _sortedPlates.Add(instance);
+
+                _angle += 45f;
+            }
         }
 
+        [ContextMenu("Test Animate")]
+        public void TestAnimate()
+        {
+            foreach (var sortedPlate in _sortedPlates)
+            {
+                sortedPlate.transform
+                    .DOPunchScale(_punchVector, _punchDuration,_punchVibrato,_punchElasticy);
+            }
+        }
+        
         public void StartRotatePlates()
         {
             Vector3 rot = new Vector3(180f, 0f, 0f);
