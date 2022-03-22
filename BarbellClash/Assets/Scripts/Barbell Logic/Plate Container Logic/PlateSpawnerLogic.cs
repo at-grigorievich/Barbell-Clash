@@ -75,11 +75,10 @@ namespace Barbell
         private void AddPlatesToBarbell(IStackable stack)
         {
             _dropPlates = null;
-            foreach (var platesPlate in _plates.Plates)
-            {
-                stack.AddPlate(platesPlate);
-            }
-            
+
+            PlateLogic plate = _plates.Plates[0];
+            stack.AddPlate(plate);
+
             AnimateDestroying();
         }
         private void DestroyPlatesInstances()

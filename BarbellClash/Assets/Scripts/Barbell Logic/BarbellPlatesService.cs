@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
@@ -16,7 +17,8 @@ namespace Barbell
         [SerializeField] private Transform _minTarget;
         [SerializeField] private Transform _maxTarget;
 
-        [Space(10)] [Header("Animation Values")]
+        [Space(10)] [Header("Animation Values")] 
+        [SerializeField] private float _delay;
         [SerializeField] private float _punchDuration;
         [SerializeField] private int _punchVibrato;
         [SerializeField] private float _punchElasticy;
@@ -38,31 +40,29 @@ namespace Barbell
         {
             PlateLogic[] plates = _defaultPlates.Plates;
             Array.Sort(plates,new DescendingContainer());
-            
-            foreach (var platePrefab in plates)
+
+            if (plates.Length > 0)
             {
-                AddPlate(platePrefab);
+                AddPlate(plates[0]);
             }
         }
 
         public void AddPlate(PlateLogic plate)
         {
-            if (Mathf.Abs(_minTarget.position.x) >= Mathf.Abs(_maxTarget.position.x))
+            if (_sortedPlates.Count == 0)
             {
-                Quaternion rot = Quaternion.Euler(_angle, 0f, 0f);
-                var instance =
-                    Instantiate(plate, _minTarget.position, rot, transform);
-
-                Vector3 nextTarget = _direction.normalized * instance.Thickness;
-                _minTarget.position += nextTarget;
-
-
-                instance.transform
-                    .DOPunchScale(_punchVector, _punchDuration,_punchVibrato,_punchElasticy);
-                
-                _sortedPlates.Add(instance);
-
-                _angle += 45f;
+                StartCoroutine(AnimatePlateAdding(plate));
+                return;
+            }
+            
+            if (_sortedPlates.Count > 0 && plate.Id == _sortedPlates.Last().Id)
+            {
+                StartCoroutine(AnimateCurrentPlates());
+            }
+            else if(_sortedPlates.Count > 0 && plate.Id != _sortedPlates.Last().Id)
+            {
+                RemoveAllPlates();
+                StartCoroutine(AnimatePlateAdding(plate));
             }
         }
 
@@ -109,6 +109,53 @@ namespace Barbell
             _rotatePlates.Clear();
         }
 
+
+        private void RemoveAllPlates()
+        {
+            Vector3 resetPos = _minTarget.position;
+            resetPos.x = _sortedPlates.First().transform.position.x;
+
+            _minTarget.position = resetPos;
+            
+            foreach (var sortedPlate in _sortedPlates)
+            {
+                GameObject.Destroy(sortedPlate.gameObject);
+            }
+            _sortedPlates.Clear();
+        }
+        
+        private void AnimateScale(PlateLogic instance) => 
+            instance.transform
+                .DOPunchScale(_punchVector, _punchDuration,_punchVibrato,_punchElasticy);
+
+        private IEnumerator AnimatePlateAdding(PlateLogic plate)
+        {
+            while (Mathf.Abs(_minTarget.position.x) >= Mathf.Abs(_maxTarget.position.x))
+            {
+                Quaternion rot = Quaternion.Euler(_angle, 0f, 0f);
+                var instance =
+                    Instantiate(plate, _minTarget.position, rot, transform);
+
+                Vector3 nextTarget = _direction.normalized * instance.Thickness;
+                _minTarget.position += nextTarget;
+
+                
+                _sortedPlates.Add(instance);
+
+                yield return new WaitForSeconds(_delay);
+                AnimateScale(instance);
+                _angle += 45f;
+            }
+        }
+
+        private IEnumerator AnimateCurrentPlates()
+        {
+            foreach (var sortedPlate in _sortedPlates)
+            {
+                AnimateScale(sortedPlate);
+                yield return new WaitForSeconds(_delay);
+            }
+        }
         
         private class DescendingContainer: IComparer<PlateLogic>
         {
