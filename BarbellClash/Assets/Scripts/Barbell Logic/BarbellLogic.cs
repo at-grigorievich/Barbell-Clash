@@ -40,6 +40,7 @@ namespace Barbell
         public void DoDown(float downSpeed) =>
             _movementLogic.DoDown(downSpeed);
         
+        
         private void UpdateMovement()
         {
             ISizeable _plate = _plateContainers[0].PlateWithMaxRadius;

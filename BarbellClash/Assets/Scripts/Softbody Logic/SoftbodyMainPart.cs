@@ -6,6 +6,8 @@ namespace Softbody
 {
     public class SoftbodyMainPart : MonoBehaviour
     {
+        [SerializeField] private Collider _collider;
+        
         public event EventHandler OnCrushStart;
         public event EventHandler OnCrushContinue;
         public event EventHandler OnCrushEnd;
@@ -13,6 +15,10 @@ namespace Softbody
         
         private ICrushable _kinematic;
 
+        public void DisableDetecting()
+        {
+            _collider.enabled = false;
+        }
         
         private void OnTriggerEnter(Collider other)
         {

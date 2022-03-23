@@ -52,7 +52,7 @@ public class SoftbodyBlock : EnvironmentBlock
             }
             else if(k.MaxPlateId < Softbody.NeededPlateId)
             {
-                Debug.Log("afasfsf");
+                Softbody.DoDie();
             }
         }
     }

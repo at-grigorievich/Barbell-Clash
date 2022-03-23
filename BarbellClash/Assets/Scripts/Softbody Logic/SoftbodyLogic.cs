@@ -14,11 +14,13 @@ namespace Softbody
         [Space(10)]
         [SerializeField] private Vector3 _scale;
 
-        [Inject] private IAnimator _softbodyAnimator;
-        
+        [Inject] protected IAnimator _softbodyAnimator;
+
         protected ObiSolver _solver;
         protected ObiFixedUpdater _obiFixedUpdater;
 
+        private SoftbodyMainPart _mainPart;
+        
         public uint NeededPlateId => _neededPlateData.Id;
         
         private IEnumerator Start()
@@ -37,6 +39,8 @@ namespace Softbody
         [Inject]
         private void Constructor(SoftbodyMainPart mainPart, SoftBodyCrushDetect crushDetect)
         {
+            _mainPart = mainPart;
+
             mainPart.OnCrushContinue += (sender, args) =>
                 crushDetect.ColorMainSoftbodyPart();
             mainPart.OnCrushEnd += (sender, args) =>
@@ -44,7 +48,6 @@ namespace Softbody
         }
 
         public void AnimateSoftbodyCrush() => _softbodyAnimator.Crush();
-
         public void SetSoftbodyActive(bool isActive)
         {
             if(isActive)
@@ -53,6 +56,11 @@ namespace Softbody
             _solver.enabled = isActive;
             _obiFixedUpdater.enabled = isActive;
         }
+
+
+        public void DoDie() => _mainPart.DisableDetecting();
+        
+
         public class Factory: PlaceholderFactory<GameObject,SoftbodyLogic>{}
     }
 }
