@@ -23,6 +23,7 @@ namespace Softbody
             {
                 _kinematic = kinematic;
                 
+                kinematic.SetCrushCollider(true);
                 OnCrushStart?.Invoke(this,EventArgs.Empty);
             }
         }
@@ -50,6 +51,8 @@ namespace Softbody
             {
                 if (ReferenceEquals(kinematic, _kinematic))
                 {
+                    _kinematic.SetCrushCollider(false);
+                    
                     _kinematic = null;
                     OnCrushEnd?.Invoke(this,EventArgs.Empty);
                 }

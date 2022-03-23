@@ -8,6 +8,8 @@ namespace Barbell
     {
         [Range(0f,10f)]
         [SerializeField] private float _thickness;
+
+        [SerializeField] private Collider _crushCollider;
         
         [Inject] private IPlateContainer[] _plateContainers;
         
@@ -26,7 +28,6 @@ namespace Barbell
             }
             _standartHeight = transform.position.y;
         }
-
         private void Update()
         {
             UpdateMovement();
@@ -34,21 +35,11 @@ namespace Barbell
 
         public void DoMove(Vector3 direction) =>
             _movementLogic.DoMove(direction);
-
         public void DoUp(float upSpeed) =>
             _movementLogic.DoUp(upSpeed);
-
         public void DoDown(float downSpeed) =>
             _movementLogic.DoDown(downSpeed);
-
-        public void AddPlate(PlateLogic platePrafab)
-        {
-            foreach (var plateContainer in _plateContainers)
-            {
-                plateContainer.AddPlate(platePrafab);
-            }
-        }
-
+        
         private void UpdateMovement()
         {
             ISizeable _plate = _plateContainers[0].PlateWithMaxRadius;
@@ -72,6 +63,13 @@ namespace Barbell
             }
         }
         
+        public void AddPlate(PlateLogic platePrafab)
+        {
+            foreach (var plateContainer in _plateContainers)
+            {
+                plateContainer.AddPlate(platePrafab);
+            }
+        }
         private void StartAnimatePlatesRotate()
         {
             foreach (var plateContainer in _plateContainers)
@@ -87,6 +85,10 @@ namespace Barbell
             }
         }
         
+        public void SetCrushCollider(bool enabled)
+        {
+            _crushCollider.enabled = enabled;
+        }
         
         public class Factory: PlaceholderFactory<UnityEngine.Object,BarbellLogic> {}
     }
