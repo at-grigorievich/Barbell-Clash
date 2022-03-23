@@ -43,6 +43,8 @@ namespace Softbody
                 _solver.parameters.damping = 1f;
         }
 
+        public void AnimateSoftbodyCrush() => _softbodyAnimator.Crush();
+
         public void SetSoftbodyActive(bool isActive)
         {
             if(isActive)

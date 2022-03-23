@@ -43,10 +43,16 @@ public class SoftbodyBlock : EnvironmentBlock
         
         if (other.attachedRigidbody.TryGetComponent(out ICrushable k))
         {
+            Softbody.AnimateSoftbodyCrush();
             if (k.MaxPlateId == Softbody.NeededPlateId)
             {
                 _curKinematic = k;
+                
                 Softbody.SetSoftbodyActive(true);
+            }
+            else if(k.MaxPlateId < Softbody.NeededPlateId)
+            {
+                Debug.Log("afasfsf");
             }
         }
     }
