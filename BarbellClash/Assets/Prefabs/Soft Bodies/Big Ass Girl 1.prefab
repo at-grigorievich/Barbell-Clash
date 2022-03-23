@@ -2256,6 +2256,7 @@ GameObject:
   - component: {fileID: 3991044219148111673}
   - component: {fileID: 8007484765795574220}
   - component: {fileID: 8007484765795574221}
+  - component: {fileID: 4220329181384240289}
   m_Layer: 0
   m_Name: Abigail_Beachware1
   m_TagString: Untagged
@@ -73784,6 +73785,19 @@ MonoBehaviour:
   _plasticYield: 0.25
   _plasticCreep: 1
   _plasticRecovery: 0
+--- !u!114 &4220329181384240289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8007484765795574223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c89706e6114e0e9524569fbbeb13e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderer: {fileID: 3991044219148111673}
 --- !u!1 &8107445282672682772
 GameObject:
   m_ObjectHideFlags: 0
