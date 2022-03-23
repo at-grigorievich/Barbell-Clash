@@ -55,5 +55,7 @@ namespace Barbell
         {
             _heightDirection = Vector3.down * downSpeed * Time.deltaTime;
         }
+
+        public void SetUpdateMovement(bool isIgnore) {}
     }
 }

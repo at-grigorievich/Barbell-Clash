@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Zenject;
 
 namespace Barbell
@@ -14,11 +15,15 @@ namespace Barbell
         [Inject] private IPlateContainer[] _plateContainers;
         
         private IKinematic _movementLogic;
+        private Action _updateMovement;
 
         private float _standartHeight;
+        private float _lastHeightSpeed;
         
         public uint MaxPlateId =>
             _plateContainers[0].PlateWithMaxRadius?.Id ?? 100;
+
+        public HeightStatus HeightStatus { get; private set; }
         
         private void Start()
         {
@@ -27,20 +32,47 @@ namespace Barbell
                 plateContainer.InitDefaultPlate();
             }
             _standartHeight = transform.position.y;
+
+            _updateMovement = UpdateMovement;
         }
         private void Update()
         {
-            UpdateMovement();
+            _updateMovement?.Invoke();
         }
 
-        public void DoMove(Vector3 direction) =>
+        public void DoMove(Vector3 direction)
+        {
+            Debug.Log("down");
             _movementLogic.DoMove(direction);
-        public void DoUp(float upSpeed) =>
+        }
+        public void DoUp(float upSpeed)
+        {
+            HeightStatus = HeightStatus.Up;
+            _lastHeightSpeed = upSpeed;
+            
             _movementLogic.DoUp(upSpeed);
-        public void DoDown(float downSpeed) =>
+        }
+        public void DoDown(float downSpeed)
+        {
+            HeightStatus = HeightStatus.Down;
+            _lastHeightSpeed = downSpeed;
+            
             _movementLogic.DoDown(downSpeed);
-        
-        
+        }
+
+        public void SetUpdateMovement(bool isIgnore)
+        {
+            if (!isIgnore)
+            {
+                _updateMovement = UpdateMovement;
+            }
+            else
+            {
+                _updateMovement = IgnoreMovement;
+            }
+        }
+
+
         private void UpdateMovement()
         {
             ISizeable _plate = _plateContainers[0].PlateWithMaxRadius;
@@ -62,7 +94,19 @@ namespace Barbell
                     _movementLogic = new BarbellFreeMovement(transform,_standartHeight,_thickness);
                 }
             }
+            UpdateMovingHeightStatus();
         }
+        private void IgnoreMovement()
+        {
+            ISizeable _plate = _plateContainers[0].PlateWithMaxRadius;
+            if (_plate != null && !(_movementLogic is BarbellFreeMovement))
+            {
+                _movementLogic =new BarbellFreeMovement(transform,_standartHeight,_plate.Radius+_thickness);
+                
+                UpdateMovingHeightStatus();
+            }
+        }
+        
         
         public void AddPlate(PlateLogic platePrafab)
         {
@@ -90,7 +134,19 @@ namespace Barbell
         {
             _crushCollider.enabled = enabled;
         }
-        
+
+
+        private void UpdateMovingHeightStatus()
+        {
+            if (HeightStatus == HeightStatus.Down)
+            {
+                _movementLogic.DoDown(_lastHeightSpeed);
+            }
+            else if (HeightStatus == HeightStatus.Up)
+            {
+                _movementLogic.DoUp(_lastHeightSpeed);
+            }
+        }
         public class Factory: PlaceholderFactory<UnityEngine.Object,BarbellLogic> {}
     }
 }

@@ -8,5 +8,7 @@ namespace Barbell
 
         void DoUp(float upSpeed);
         void DoDown(float downSpeed);
+
+        void SetUpdateMovement(bool isIgnore);
     }
 }

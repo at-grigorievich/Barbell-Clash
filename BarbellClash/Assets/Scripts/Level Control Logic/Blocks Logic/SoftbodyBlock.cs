@@ -44,15 +44,16 @@ public class SoftbodyBlock : EnvironmentBlock
         if (other.attachedRigidbody.TryGetComponent(out ICrushable k))
         {
             Softbody.AnimateSoftbodyCrush();
+            _curKinematic = k;
+            
             if (k.MaxPlateId == Softbody.NeededPlateId)
             {
-                _curKinematic = k;
-                
                 Softbody.SetSoftbodyActive(true);
             }
             else if(k.MaxPlateId < Softbody.NeededPlateId)
             {
                 Softbody.DoDie();
+                ChangeBarbellIgnoreMovement(k,true);
             }
         }
     }
@@ -69,7 +70,20 @@ public class SoftbodyBlock : EnvironmentBlock
                 _curKinematic = null;
                 
                 Softbody.SetSoftbodyActive(false);
+                
+                if (k.MaxPlateId < Softbody.NeededPlateId)
+                {
+                    ChangeBarbellIgnoreMovement(k, false);
+                }
             }
+        }
+    }
+
+    private void ChangeBarbellIgnoreMovement(ICrushable k, bool isIgnore)
+    {
+        if (k is IKinematic kinematic)
+        {
+            kinematic.SetUpdateMovement(isIgnore);
         }
     }
 }

@@ -63,10 +63,12 @@ namespace Barbell
             _heightSpeed = downSpeed;
         }
 
+        public void SetUpdateMovement(bool isIgnore) {}
+
         private void MoveTotal(Vector3 direction)
         {
             _transform.position = Vector3.MoveTowards(_transform.position, direction, 
-                _heightSpeed * Time.deltaTime);
+              _heightSpeed * Time.deltaTime);
         }
     }
 }
