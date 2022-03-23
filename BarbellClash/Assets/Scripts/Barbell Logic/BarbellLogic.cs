@@ -42,7 +42,6 @@ namespace Barbell
 
         public void DoMove(Vector3 direction)
         {
-            Debug.Log("down");
             _movementLogic.DoMove(direction);
         }
         public void DoUp(float upSpeed)
