@@ -123,10 +123,15 @@ namespace Barbell
             }
             _sortedPlates.Clear();
         }
-        
-        private void AnimateScale(PlateLogic instance) => 
+
+        private void AnimateScale(PlateLogic instance)
+        {
+            Vector3 scale = Vector3.one;
+            
             instance.transform
-                .DOPunchScale(_punchVector, _punchDuration,_punchVibrato,_punchElasticy);
+                .DOPunchScale(_punchVector, _punchDuration, _punchVibrato, _punchElasticy)
+                .OnComplete(() => instance.transform.localScale = scale);
+        }
 
         private IEnumerator AnimatePlateAdding(PlateLogic plate)
         {
@@ -153,6 +158,7 @@ namespace Barbell
             foreach (var sortedPlate in _sortedPlates)
             {
                 AnimateScale(sortedPlate);
+
                 yield return new WaitForSeconds(_delay);
             }
         }
