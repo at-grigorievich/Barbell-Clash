@@ -1591,12 +1591,11 @@ GameObject:
   - component: {fileID: 5805490269680321266}
   - component: {fileID: 464172511831365768}
   - component: {fileID: 6618864323420231758}
-  - component: {fileID: 2096851337211608865}
+  - component: {fileID: 4216828237937106620}
   - component: {fileID: 6618864323420231759}
   - component: {fileID: 6618864323420231756}
   - component: {fileID: 6618864323420231757}
   - component: {fileID: 1259037322171359474}
-  - component: {fileID: 4216828237937106620}
   m_Layer: 0
   m_Name: Big Ass Girl 1
   m_TagString: Untagged
@@ -1658,8 +1657,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!136 &2096851337211608865
-CapsuleCollider:
+--- !u!64 &4216828237937106620
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1667,11 +1666,11 @@ CapsuleCollider:
   m_GameObject: {fileID: 6618864323420231752}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
-  m_Radius: 0.05
-  m_Height: 1.3681287
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.7196794, z: 0}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1225981043010982524, guid: 18b9931a7edcea74a8d40afb060b2bbf, type: 3}
 --- !u!114 &6618864323420231759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1826,20 +1825,6 @@ MonoBehaviour:
   _neededPlateData: {fileID: 11400000, guid: 0d7f3998f488c9a47bb42fcfd7c7ff85, type: 2}
   _mainPart: {fileID: 6487709911445351010}
   _scale: {x: 20, y: 20, z: 20}
---- !u!64 &4216828237937106620
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6618864323420231752}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1225981043010982524, guid: 18b9931a7edcea74a8d40afb060b2bbf, type: 3}
 --- !u!1 &6934713021451197957
 GameObject:
   m_ObjectHideFlags: 0
@@ -73797,7 +73782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c89706e6114e0e9524569fbbeb13e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _renderer: {fileID: 3991044219148111673}
+  _limit: 0.95
 --- !u!1 &8107445282672682772
 GameObject:
   m_ObjectHideFlags: 0
