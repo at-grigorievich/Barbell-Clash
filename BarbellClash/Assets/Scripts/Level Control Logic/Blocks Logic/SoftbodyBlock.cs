@@ -27,7 +27,6 @@ public class SoftbodyBlock : EnvironmentBlock
     [Inject]
     private void Constructor(SoftbodyLogic.Factory factory)
     {
-        //Softbody = GameObject.Instantiate(_softbodyInstance,transform);
         Softbody = factory.Create(_softbodyInstance.gameObject);
         
         Softbody.transform.SetParent(transform);

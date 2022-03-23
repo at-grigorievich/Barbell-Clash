@@ -3,6 +3,7 @@ using Barbell;
 using UnityEngine;
 using Zenject;
 using Obi;
+using Softbody.Interfaces;
 
 namespace Softbody
 {
@@ -12,6 +13,8 @@ namespace Softbody
         [SerializeField] private PlateData _neededPlateData;
         [Space(10)]
         [SerializeField] private Vector3 _scale;
+
+        [Inject] private IAnimator _softbodyAnimator;
         
         protected ObiSolver _solver;
         protected ObiFixedUpdater _obiFixedUpdater;
@@ -24,8 +27,11 @@ namespace Softbody
             _obiFixedUpdater = GetComponent<ObiFixedUpdater>();
             
             yield return new WaitForEndOfFrame();
+            
             transform.localScale = _scale;
             SetSoftbodyActive(false);
+            
+            _softbodyAnimator.Idle();
         }
 
         [Inject]
@@ -39,6 +45,9 @@ namespace Softbody
 
         public void SetSoftbodyActive(bool isActive)
         {
+            if(isActive)
+                _softbodyAnimator.Crush();
+            
             _solver.enabled = isActive;
             _obiFixedUpdater.enabled = isActive;
         }

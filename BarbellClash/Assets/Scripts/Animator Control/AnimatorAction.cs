@@ -7,6 +7,7 @@
         Run,
         Fall,
         Fight,
-        Death
+        Death,
+        Crush
     }
 }
