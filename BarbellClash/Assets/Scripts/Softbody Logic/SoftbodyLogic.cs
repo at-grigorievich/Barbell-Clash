@@ -11,10 +11,8 @@ namespace Softbody
     {
         [SerializeField] private PlateData _neededPlateData;
         [Space(10)]
-        [SerializeField] private SoftbodyMainPart _mainPart;
-        [Space(10)]
         [SerializeField] private Vector3 _scale;
-
+        
         protected ObiSolver _solver;
         protected ObiFixedUpdater _obiFixedUpdater;
 
@@ -24,15 +22,20 @@ namespace Softbody
         {
             _solver = GetComponent<ObiSolver>();
             _obiFixedUpdater = GetComponent<ObiFixedUpdater>();
-
-            _mainPart.OnCrushEnd +=
-                (sender, args) => _solver.parameters.damping = 1f;
             
             yield return new WaitForEndOfFrame();
             transform.localScale = _scale;
             SetSoftbodyActive(false);
         }
-        
+
+        [Inject]
+        private void Constructor(SoftbodyMainPart mainPart, SoftBodyCrushDetect crushDetect)
+        {
+            mainPart.OnCrushContinue += (sender, args) =>
+                crushDetect.ColorMainSoftbodyPart();
+            mainPart.OnCrushEnd += (sender, args) =>
+                _solver.parameters.damping = 1f;
+        }
 
         public void SetSoftbodyActive(bool isActive)
         {

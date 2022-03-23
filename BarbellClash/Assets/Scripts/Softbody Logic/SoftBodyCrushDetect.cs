@@ -6,6 +6,8 @@ namespace Softbody
     [RequireComponent(typeof(SkinnedMeshRenderer),typeof(ObiSoftbody))]
     public class SoftBodyCrushDetect : MonoBehaviour
     {
+        [SerializeField] private Color _crushColor;
+        [SerializeField] private float _colorSpeed;
         [SerializeField] private float _limit;
 
         private SkinnedMeshRenderer _renderer;
@@ -26,15 +28,15 @@ namespace Softbody
             _renderer.sharedMesh.colors = _defaultColors;
         }
         
-        public void ColorMainSoftbodyPart(Color color)
+        public void ColorMainSoftbodyPart()
         {
-            Color[] colors = (Color[]) _renderer.sharedMesh.colors.Clone();
-
+            Color[] colors = _renderer.sharedMesh.colors;
+            
             for (var i = 0; i < _skinner.m_softbodyInfluences.Length; i++)
             {
                 if (_skinner.m_softbodyInfluences[i] >= _limit)
                 {
-                    colors[i] = color;
+                    colors[i] = Color.Lerp(colors[i],_crushColor,_colorSpeed*Time.deltaTime);
                 }
             }
 
