@@ -35,8 +35,8 @@ namespace Barbell
             endDirection.y = Mathf.Clamp(endDirection.y, min, _defaultHeight);
 
             _transform.position = endDirection;
-
-            if (Mathf.Abs(_transform.position.y - min) <= 0.1f)
+            
+            if (Mathf.Abs(_transform.position.y - _defaultHeight) > 0.1f)
             {
                 _startPlateRotate?.Invoke();
             }

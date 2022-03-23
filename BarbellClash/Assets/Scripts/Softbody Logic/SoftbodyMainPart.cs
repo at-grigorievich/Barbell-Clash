@@ -36,7 +36,6 @@ namespace Softbody
             {
                 if (ReferenceEquals(kinematic, _kinematic))
                 {
-                    Debug.Log("Invoke");
                     OnCrushContinue?.Invoke(this,EventArgs.Empty);
                 }
             }
