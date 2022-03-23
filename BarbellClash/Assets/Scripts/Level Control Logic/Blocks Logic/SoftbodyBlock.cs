@@ -55,6 +55,10 @@ public class SoftbodyBlock : EnvironmentBlock
                 Softbody.DoDie();
                 ChangeBarbellIgnoreMovement(k,true);
             }
+            else
+            {
+                Softbody.DoDisableDetecting();
+            }
         }
     }
 

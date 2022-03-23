@@ -368,6 +368,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainPart: {fileID: 6487709911445351010}
+--- !u!1 &923784441984969328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6865838119245909744}
+  - component: {fileID: 371483886449423390}
+  m_Layer: 0
+  m_Name: Die Service Installer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6865838119245909744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923784441984969328}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7027897431770863708}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &371483886449423390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923784441984969328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39330f0afd874bc19b8a4521b62eb263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dieInteractiveService: {fileID: 1166051774286720069}
 --- !u!1 &971819025610352469
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,6 +2379,7 @@ MonoBehaviour:
   - {fileID: 7893504129466022691}
   - {fileID: 5886595355663364046}
   - {fileID: 8098318702006241706}
+  - {fileID: 371483886449423390}
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
@@ -2475,6 +2520,7 @@ Transform:
   - {fileID: 792363424738878637}
   - {fileID: 4459045554017879048}
   - {fileID: 3964701393838417387}
+  - {fileID: 6865838119245909744}
   m_Father: {fileID: 5805490269680321266}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2568,6 +2614,7 @@ Transform:
   m_Children:
   - {fileID: 8185592806750951596}
   - {fileID: 1057279764057297004}
+  - {fileID: 3325404536789696630}
   m_Father: {fileID: 5805490269680321266}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2633,6 +2680,54 @@ Transform:
   m_Father: {fileID: 60984258035090845}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7181280315588690193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3325404536789696630}
+  - component: {fileID: 1166051774286720069}
+  m_Layer: 0
+  m_Name: Die Interactable Service
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3325404536789696630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7181280315588690193}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2790366239715873897}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1166051774286720069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7181280315588690193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc1abc4f29f4d199bfa30d44cf2057d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shakeAss: {fileID: 1696252485438409100}
+  _duration: 1
+  _punchForce: {x: 0, y: 5, z: 5}
+  _targetPosition: {x: 8.526513e-15, y: 0, z: -0.038}
+  _targetRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &7291983337758758672
 GameObject:
   m_ObjectHideFlags: 0

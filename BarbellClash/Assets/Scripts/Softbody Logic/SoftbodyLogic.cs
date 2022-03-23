@@ -15,7 +15,8 @@ namespace Softbody
         [SerializeField] private Vector3 _scale;
 
         [Inject] protected IAnimator _softbodyAnimator;
-
+        [Inject] protected IDieInteractable _dieInteractable;
+        
         protected ObiSolver _solver;
         protected ObiFixedUpdater _obiFixedUpdater;
 
@@ -58,7 +59,16 @@ namespace Softbody
         }
 
 
-        public void DoDie() => _mainPart.DisableDetecting();
+        public void DoDisableDetecting()
+        {
+            _mainPart.DisableDetecting();
+        }
+
+        public void DoDie()
+        {
+            DoDisableDetecting();
+            _dieInteractable.AnimateDie();
+        }
         
 
         public class Factory: PlaceholderFactory<GameObject,SoftbodyLogic>{}
