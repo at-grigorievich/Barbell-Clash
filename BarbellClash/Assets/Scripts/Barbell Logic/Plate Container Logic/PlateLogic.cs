@@ -18,6 +18,9 @@ namespace Barbell
         [field: SerializeField]
         public float Thickness { get; private set; }
 
+        [field: SerializeField]
+        public Vector3 MeshSize { get; private set; }
+
         public uint Id => _data.Id;
 
         public float RotateSpeed => _data.RotateSpeed;

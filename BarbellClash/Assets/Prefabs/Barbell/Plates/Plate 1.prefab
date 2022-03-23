@@ -99,3 +99,4 @@ MonoBehaviour:
   _data: {fileID: 11400000, guid: 0d7f3998f488c9a47bb42fcfd7c7ff85, type: 2}
   <Radius>k__BackingField: 3.2
   <Thickness>k__BackingField: 0.95
+  <MeshSize>k__BackingField: {x: 1, y: 1, z: 1}

@@ -119,6 +119,7 @@ namespace Barbell
             
             foreach (var sortedPlate in _sortedPlates)
             {
+                DOTween.Kill(sortedPlate);
                 GameObject.Destroy(sortedPlate.gameObject);
             }
             _sortedPlates.Clear();
@@ -127,10 +128,10 @@ namespace Barbell
         private void AnimateScale(PlateLogic instance)
         {
             Vector3 scale = Vector3.one;
-            
+
             instance.transform
                 .DOPunchScale(_punchVector, _punchDuration, _punchVibrato, _punchElasticy)
-                .OnComplete(() => instance.transform.localScale = scale);
+                .OnComplete(() => instance.transform.DOScale(instance.MeshSize, 0.2f));
         }
 
         private IEnumerator AnimatePlateAdding(PlateLogic plate)
@@ -157,9 +158,12 @@ namespace Barbell
         {
             foreach (var sortedPlate in _sortedPlates)
             {
-                AnimateScale(sortedPlate);
+                if (sortedPlate.transform.localScale == sortedPlate.MeshSize)
+                {
+                    AnimateScale(sortedPlate);
 
-                yield return new WaitForSeconds(_delay);
+                    yield return new WaitForSeconds(_delay);
+                }
             }
         }
         
