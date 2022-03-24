@@ -49,25 +49,11 @@ public class SoftbodyBlock : EnvironmentBlock
     {
         _upBerbellCollider = null;
         _downBarbellCollider = DownBarbellCollider;
-        
-        foreach (var cCollider in c.Colliders)
-        {
-            if (cCollider is BoxCollider collider)
-            {
 
-                Vector3 pos = collider.center;
-                Vector3 add = Vector3.up * Softbody.YDelta;
-                collider.center = pos + add;
-            }
-            
-            if (cCollider is CapsuleCollider col)
-            {
+        Vector3 curPos = c.CollidersContainer.localPosition;
+        Vector3 add = Softbody.YDelta * Vector3.up;
 
-                Vector3 pos = col.center;
-                Vector3 add = Vector3.up * Softbody.YDelta;
-                col.center = pos + add;
-            }
-        }
+        c.CollidersContainer.localPosition = curPos + add;
     }
 
     private void DownBarbellCollider(ICrushable c)
@@ -75,24 +61,10 @@ public class SoftbodyBlock : EnvironmentBlock
         _downBarbellCollider = null;
         _upBerbellCollider = null;
         
-        foreach (var cCollider in c.Colliders)
-        {
-            if (cCollider is BoxCollider collider)
-            {
+        Vector3 curPos = c.CollidersContainer.localPosition;
+        Vector3 add = Softbody.YDelta * Vector3.up;
 
-                Vector3 pos = collider.center;
-                Vector3 add = Vector3.up * Softbody.YDelta;
-                collider.center = pos - add;
-            }
-            
-            if (cCollider is CapsuleCollider col)
-            {
-
-                Vector3 pos = col.center;
-                Vector3 add = Vector3.up * Softbody.YDelta;
-                col.center = pos - add;
-            }
-        }
+        c.CollidersContainer.localPosition = curPos - add;
     }
 
     private void OnTriggerEnter(Collider other)

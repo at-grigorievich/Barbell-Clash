@@ -5,7 +5,7 @@ namespace Barbell
     public interface ICrushable
     {
         public uint MaxPlateId { get; }
-        Collider[] Colliders { get; }
+        Transform CollidersContainer { get; }
         
         void SetCrushCollider(bool enabled);
     }

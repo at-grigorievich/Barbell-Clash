@@ -26,7 +26,7 @@ namespace Barbell
             _plateContainers[0].PlateWithMaxRadius?.Id ?? 100;
 
         [field: SerializeField]
-        public Collider[] Colliders { get; private set; }
+        public Transform CollidersContainer { get; private set; }
 
         public HeightStatus HeightStatus { get; private set; }
         
