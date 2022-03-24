@@ -71283,8 +71283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0a0a9b569d4a778e76215579a13cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _neededPlateData: {fileID: 11400000, guid: 2044fcf3a013dfa43858daf592e82b1e, type: 2}
+  _neededPlateData: {fileID: 11400000, guid: 0d7f3998f488c9a47bb42fcfd7c7ff85, type: 2}
   _scale: {x: 20, y: 20, z: 20}
+  <YDelta>k__BackingField: 1.6
 --- !u!1 &4491125748605358656
 GameObject:
   m_ObjectHideFlags: 0

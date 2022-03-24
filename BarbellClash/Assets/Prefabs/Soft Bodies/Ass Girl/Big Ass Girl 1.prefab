@@ -2727,7 +2727,6 @@ MonoBehaviour:
   _duration: 1
   _punchForce: {x: 0, y: 5, z: 5}
   _targetPosition: {x: 8.526513e-15, y: 0, z: -0.038}
-  _targetRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &7291983337758758672
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,9 +19,14 @@ namespace Barbell
 
         private float _standartHeight;
         private float _lastHeightSpeed;
+
+        public bool Cf;
         
         public uint MaxPlateId =>
             _plateContainers[0].PlateWithMaxRadius?.Id ?? 100;
+
+        [field: SerializeField]
+        public Collider[] Colliders { get; private set; }
 
         public HeightStatus HeightStatus { get; private set; }
         
@@ -37,6 +42,10 @@ namespace Barbell
         }
         private void Update()
         {
+            if (Cf)
+            {
+                DoDown(65f);
+            }
             _updateMovement?.Invoke();
         }
 
@@ -63,7 +72,6 @@ namespace Barbell
         {
             _movementLogic.UpdateCurrentHeight(newHeight);
         }
-
         public void SetUpdateMovement(bool isIgnore)
         {
             if (!isIgnore)

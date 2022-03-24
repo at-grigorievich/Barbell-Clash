@@ -617,6 +617,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _thickness: 1
   _crushCollider: {fileID: 2427543130743844526}
+  Cf: 0
+  <Colliders>k__BackingField:
+  - {fileID: 3413393535108223270}
+  - {fileID: 2427543130743844526}
 --- !u!54 &8810295190860989912
 Rigidbody:
   m_ObjectHideFlags: 0

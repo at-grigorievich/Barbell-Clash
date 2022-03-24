@@ -13,7 +13,10 @@ namespace Softbody
         [SerializeField] private PlateData _neededPlateData;
         [Space(10)]
         [SerializeField] private Vector3 _scale;
-
+        [field: Space(10)]
+        [field: SerializeField]
+        public float YDelta { get; private set; }
+        
         [Inject] protected IAnimator _softbodyAnimator;
         [Inject] protected IDieInteractable _dieInteractable;
         

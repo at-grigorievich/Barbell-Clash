@@ -70,6 +70,7 @@ namespace Barbell
                 foreach (var plate in _plates.Plates)
                 {
                     var instance = Instantiate(plate, pos+upDelay, rot, transform);
+                    instance.transform.localScale = instance.MeshSize;
                     _platesInstances.Add(instance);
 
                     upDelay += Vector3.up * plate.Thickness;
