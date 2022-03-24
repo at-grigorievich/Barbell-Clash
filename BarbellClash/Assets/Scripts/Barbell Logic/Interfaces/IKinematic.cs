@@ -9,6 +9,8 @@ namespace Barbell
         void DoUp(float upSpeed);
         void DoDown(float downSpeed);
 
+        void UpdateCurrentHeight(ISizeable newSize);
+        
         void SetUpdateMovement(bool isIgnore);
     }
 }

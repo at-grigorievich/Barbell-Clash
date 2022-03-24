@@ -63,6 +63,9 @@ namespace Barbell
             _heightSpeed = downSpeed;
         }
 
+        public void UpdateCurrentHeight(ISizeable newSize){}
+
+
         public void SetUpdateMovement(bool isIgnore) {}
 
         private void MoveTotal(Vector3 direction)

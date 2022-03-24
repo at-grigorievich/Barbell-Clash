@@ -62,7 +62,7 @@ MonoBehaviour:
   _targets:
   - {fileID: 3313358033834314991}
   - {fileID: 3361249230929849943}
-  _plates: {fileID: 11400000, guid: 8eda9fda5a46aa24b93fbab6132457c0, type: 2}
+  _plates: {fileID: 11400000, guid: 7dad8cc72f8120e41aa60e420e073961, type: 2}
   _shakeDuration: 0.5
   _jumpDuration: 0.5
   _jumpStrength: 2.5
@@ -218,7 +218,7 @@ MonoBehaviour:
   _targets:
   - {fileID: 7713807614203618709}
   - {fileID: 1161885521150047458}
-  _plates: {fileID: 11400000, guid: 8eda9fda5a46aa24b93fbab6132457c0, type: 2}
+  _plates: {fileID: 11400000, guid: 7dad8cc72f8120e41aa60e420e073961, type: 2}
   _shakeDuration: 0.5
   _jumpDuration: 0.5
   _jumpStrength: 2.5
@@ -314,7 +314,7 @@ MonoBehaviour:
   _targets:
   - {fileID: 1707752208557573207}
   - {fileID: 7333883194809015099}
-  _plates: {fileID: 11400000, guid: 8eda9fda5a46aa24b93fbab6132457c0, type: 2}
+  _plates: {fileID: 11400000, guid: 7dad8cc72f8120e41aa60e420e073961, type: 2}
   _shakeDuration: 0.5
   _jumpDuration: 0.5
   _jumpStrength: 3
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 6768989904039971240}
   - component: {fileID: -6951386601776898492}
   m_Layer: 6
-  m_Name: 1 Plates Block
+  m_Name: 2 Plates Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

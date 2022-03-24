@@ -33,15 +33,21 @@ namespace Barbell
             InstantiatePlates();
 
             _dropPlates = AddPlatesToBarbell;
-            _destroyInstances = DestroyPlatesInstances;
         }
         
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             if (other.attachedRigidbody.TryGetComponent(out IStackable stack))
             {
-                _dropPlates?.Invoke(stack);
+                if (stack is BarbellLogic bl)
+                {
+                    Debug.Log(bl.HeightStatus);
+                    if (bl.HeightStatus == HeightStatus.Down)
+                    {
+                        _dropPlates?.Invoke(stack);
+                    }
+                }
             }
         }
         private void OnTriggerExit(Collider other)
@@ -75,11 +81,13 @@ namespace Barbell
         private void AddPlatesToBarbell(IStackable stack)
         {
             _dropPlates = null;
-
+            _destroyInstances = DestroyPlatesInstances;
+            
             PlateLogic plate = _plates.Plates[0];
             stack.AddPlate(plate);
 
             AnimateDestroying();
+            
         }
         private void DestroyPlatesInstances()
         {

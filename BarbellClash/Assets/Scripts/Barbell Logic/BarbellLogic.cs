@@ -59,6 +59,11 @@ namespace Barbell
             _movementLogic.DoDown(downSpeed);
         }
 
+        public void UpdateCurrentHeight(ISizeable newHeight)
+        {
+            _movementLogic.UpdateCurrentHeight(newHeight);
+        }
+
         public void SetUpdateMovement(bool isIgnore)
         {
             if (!isIgnore)
@@ -113,6 +118,8 @@ namespace Barbell
             {
                 plateContainer.AddPlate(platePrafab);
             }
+            
+            UpdateCurrentHeight(platePrafab);
         }
         private void StartAnimatePlatesRotate()
         {

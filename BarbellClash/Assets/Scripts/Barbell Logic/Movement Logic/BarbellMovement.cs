@@ -6,12 +6,11 @@ namespace Barbell
     public class BarbellMovement : IKinematic
     {
         private readonly Transform _transform;
-        private readonly float _defaultHeight;
-
-        private readonly ISizeable _maxSize;
-
+        private ISizeable _maxSize;
         private Vector3 _heightDirection;
+        private  float _defaultHeight;
 
+        
         private readonly Action _startPlateRotate, _stopPlateRotate;
         
         public BarbellMovement(Transform transform, float height, 
@@ -32,6 +31,8 @@ namespace Barbell
             Vector3 endDirection = _transform.position + direction + _heightDirection;
 
             float min = _maxSize?.Radius ?? 0f;
+            
+            Debug.Log(min);
             endDirection.y = Mathf.Clamp(endDirection.y, min, _defaultHeight);
 
             _transform.position = endDirection;
@@ -54,6 +55,16 @@ namespace Barbell
         public void DoDown(float downSpeed)
         {
             _heightDirection = Vector3.down * downSpeed * Time.deltaTime;
+        }
+
+        public void UpdateCurrentHeight(ISizeable newSize)
+        {
+            _maxSize = newSize;
+        }
+
+        public void UpdateCurrentHeight(float newHeight)
+        {
+            _defaultHeight = newHeight;
         }
 
         public void SetUpdateMovement(bool isIgnore) {}
