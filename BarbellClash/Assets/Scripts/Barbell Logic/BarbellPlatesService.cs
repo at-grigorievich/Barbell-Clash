@@ -125,14 +125,10 @@ namespace Barbell
             _sortedPlates.Clear();
         }
 
-        private void AnimateScale(PlateLogic instance)
-        {
-            Vector3 scale = Vector3.one;
-
+        private void AnimateScale(PlateLogic instance) =>
             DOTween.Sequence()
                 .Append(instance.transform.DOScale(instance.MeshSize, 0.1f))
                 .Append(instance.transform.DOPunchScale(_punchVector, _punchDuration, _punchVibrato, _punchElasticy));
-        }
 
         private IEnumerator AnimatePlateAdding(PlateLogic plate)
         {

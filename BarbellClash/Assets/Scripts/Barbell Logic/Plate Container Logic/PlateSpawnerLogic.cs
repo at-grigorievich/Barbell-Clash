@@ -42,7 +42,6 @@ namespace Barbell
             {
                 if (stack is BarbellLogic bl)
                 {
-                    Debug.Log(bl.HeightStatus);
                     if (bl.HeightStatus == HeightStatus.Down)
                     {
                         _dropPlates?.Invoke(stack);

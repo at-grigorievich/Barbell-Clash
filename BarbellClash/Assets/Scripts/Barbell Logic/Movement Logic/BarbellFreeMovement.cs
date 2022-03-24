@@ -40,7 +40,7 @@ namespace Barbell
 #endif
                 if (_isDown)
                 {
-                    endDirection.y = hit.point.y + _barbellThickness;
+                    endDirection.y = hit.point.y + _barbellThickness/2f;
                 }
                 else
                 {
