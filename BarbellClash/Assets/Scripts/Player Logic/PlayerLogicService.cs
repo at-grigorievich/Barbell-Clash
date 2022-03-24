@@ -58,7 +58,6 @@ namespace PlayerLogic
 
         private void Update()
         {
-           // Debug.Log(SpeedParameters.MovementSpeed);
             OnExecute();
         }
 
