@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: {x: 0, y: 0, z: 28}
-  _softbodyInstance: {fileID: 1259037322171359474, guid: f860bc37734bfa64ab80758b7cfc63cf, type: 3}
+  _softbodyInstance: {fileID: 676898285705624174, guid: a1ec0853d80822c48a4a9f1aadbc47bf, type: 3}
   _instanceOptions:
     <TargetPosition>k__BackingField: {fileID: 2034526457216756707}
 --- !u!65 &6651086949906100222
@@ -345,10 +345,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9058277394149023638}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.70710677, z: 0.70710677, w: 0}
   m_LocalPosition: {x: 0, y: 1.85, z: -14.829999}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children: []
   m_Father: {fileID: 6768989904039971240}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 90, z: 90}
