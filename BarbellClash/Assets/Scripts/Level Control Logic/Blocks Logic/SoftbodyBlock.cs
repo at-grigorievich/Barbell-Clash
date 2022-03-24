@@ -1,6 +1,7 @@
 using System;
 using ATG.LevelControl;
 using Barbell;
+using PlayerLogic;
 using Softbody;
 using UnityEngine;
 using Zenject;
@@ -20,6 +21,8 @@ public class SoftbodyBlock : EnvironmentBlock
     [Space(15)] 
     [SerializeField] private BlockInstanceTarget _instanceOptions;
 
+    [Inject] private IBoostable _boostService;
+    
     private ICrushable _curKinematic;
     
     public SoftbodyLogic Softbody { get; private set; }
@@ -86,10 +89,27 @@ public class SoftbodyBlock : EnvironmentBlock
             {
                 Softbody.DoDie();
                 ChangeBarbellIgnoreMovement(k,true);
+                
+                _boostService.RemoveBoostSpeed();
             }
             else
             {
                 Softbody.DoDisableDetecting();
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.attachedRigidbody.TryGetComponent(out BarbellLogic crushable))
+        {
+            if (ReferenceEquals(_curKinematic, crushable))
+            {
+                if (crushable.MaxPlateId == Softbody.NeededPlateId 
+                    && crushable.HeightStatus == HeightStatus.Down)
+                {
+                    _boostService.AddBoostSpeed();
+                }
             }
         }
     }

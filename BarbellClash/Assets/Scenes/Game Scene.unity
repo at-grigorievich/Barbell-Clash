@@ -241,8 +241,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03ac2c26477f4b8e969a49f1187b5aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boostData:
+    _deltaBoostSpeed: 3
+    _minSpeed: 11
+    _maxSpeed: 27
   <SpeedParameters>k__BackingField:
-    <MovementSpeed>k__BackingField: 12
+    <MovementSpeed>k__BackingField: 15
     <DropSpeed>k__BackingField: 60
 --- !u!20 &198260624
 Camera:
@@ -669,6 +673,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6939d46c0afb4438ae5d7242b5f3b5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1992481189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1992481190}
+  - component: {fileID: 1992481191}
+  m_Layer: 0
+  m_Name: Boost Service Installer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1992481190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992481189}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8271954859626219802}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1992481191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992481189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8adef0a1d62b459dad64f28859a80a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _boostInstance: {fileID: 198260623}
 --- !u!1 &2145343386
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +814,7 @@ Transform:
   - {fileID: 8271954859913438694}
   - {fileID: 1016969499}
   - {fileID: 90399650}
+  - {fileID: 1992481190}
   m_Father: {fileID: 8271954860091290226}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -984,6 +1033,7 @@ MonoBehaviour:
   - {fileID: 912167656}
   - {fileID: 1016969500}
   - {fileID: 90399651}
+  - {fileID: 1992481191}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:

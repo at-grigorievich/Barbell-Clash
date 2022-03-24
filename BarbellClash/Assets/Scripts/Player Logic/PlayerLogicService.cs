@@ -11,7 +11,7 @@ namespace PlayerLogic
     public class SpeedValues
     {
         [field: SerializeField]
-        public float MovementSpeed { get; private set; }
+        public float MovementSpeed { get; set; }
         
         [field: Space(10)]
         
@@ -19,8 +19,10 @@ namespace PlayerLogic
         public float DropSpeed { get; private set; }
     }
     
-    public class PlayerLogicService: StatementBehaviour<IControllable>, IControllable
+    public class PlayerLogicService: StatementBehaviour<IControllable>, IControllable, IBoostable
     {
+        [SerializeField] private BoostParametersContainer _boostData;
+        
         [field: SerializeField]
         public SpeedValues SpeedParameters { get; private set; }
 
@@ -56,7 +58,20 @@ namespace PlayerLogic
 
         private void Update()
         {
+           // Debug.Log(SpeedParameters.MovementSpeed);
             OnExecute();
+        }
+
+        public void AddBoostSpeed()
+        {
+            SpeedParameters.MovementSpeed
+                = _boostData.BoostCurrentSpeed(SpeedParameters.MovementSpeed);
+        }
+
+        public void RemoveBoostSpeed()
+        {
+            SpeedParameters.MovementSpeed = 
+                _boostData.DebuffCurrentSpeed(SpeedParameters.MovementSpeed);
         }
     }
 }
