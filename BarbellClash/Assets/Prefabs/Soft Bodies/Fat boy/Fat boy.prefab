@@ -68223,6 +68223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _neededPlateData: {fileID: 11400000, guid: 68d2deb809437844d982d2ee34264f1b, type: 2}
   _scale: {x: 17, y: 17, z: 17}
+  <YDelta>k__BackingField: 0.8
 --- !u!114 &7608770390915361983
 MonoBehaviour:
   m_ObjectHideFlags: 0
