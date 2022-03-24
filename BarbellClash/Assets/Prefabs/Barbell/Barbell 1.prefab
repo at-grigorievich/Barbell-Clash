@@ -615,7 +615,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c0c4659af24ad4984e73815c1a4bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Col: {fileID: 3413393535108223270}
   _thickness: 1
   _crushCollider: {fileID: 2427543130743844526}
 --- !u!54 &8810295190860989912

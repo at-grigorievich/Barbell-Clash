@@ -97,6 +97,6 @@ MonoBehaviour:
   _renderers:
   - {fileID: 2614703003848488154}
   _data: {fileID: 11400000, guid: 2044fcf3a013dfa43858daf592e82b1e, type: 2}
-  <Radius>k__BackingField: 4.5
+  <Radius>k__BackingField: 5.5
   <Thickness>k__BackingField: 0.95
   <MeshSize>k__BackingField: {x: 1, y: 1, z: 1}
