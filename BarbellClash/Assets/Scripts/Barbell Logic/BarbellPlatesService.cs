@@ -129,9 +129,9 @@ namespace Barbell
         {
             Vector3 scale = Vector3.one;
 
-            instance.transform
-                .DOPunchScale(_punchVector, _punchDuration, _punchVibrato, _punchElasticy)
-                .OnComplete(() => instance.transform.DOScale(instance.MeshSize, 0.2f));
+            DOTween.Sequence()
+                .Append(instance.transform.DOScale(instance.MeshSize, 0.1f))
+                .Append(instance.transform.DOPunchScale(_punchVector, _punchDuration, _punchVibrato, _punchElasticy));
         }
 
         private IEnumerator AnimatePlateAdding(PlateLogic plate)
@@ -142,6 +142,8 @@ namespace Barbell
                 var instance =
                     Instantiate(plate, _minTarget.position, rot, transform);
 
+                instance.transform.localScale = Vector3.one;
+                
                 Vector3 nextTarget = _direction.normalized * instance.Thickness;
                 _minTarget.position += nextTarget;
 
