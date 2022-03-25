@@ -9,8 +9,7 @@ namespace Softbody
     {
         [SerializeField] private Transform _smokeTransform;
         [SerializeField] private Transform _emojiTransform;
-        [SerializeField] private Transform _hitTransform;
-        
+
         [Inject] private IVFXControllable _vfxControllable;
 
         public void SmokeAfterShake()

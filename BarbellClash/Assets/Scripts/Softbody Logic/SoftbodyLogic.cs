@@ -61,15 +61,7 @@ namespace Softbody
             _solver.enabled = isActive;
             _obiFixedUpdater.enabled = isActive;
         }
-
         
-        public void DoDie()
-        {
-            _dieInteractable.AnimateDie();
-            _visual.ShowDieEmotion();
-        }
-        
-
         public class Factory: PlaceholderFactory<GameObject,SoftbodyLogic>{}
     }
 }

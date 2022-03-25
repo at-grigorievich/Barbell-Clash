@@ -69542,7 +69542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _crushColor: {r: 1, g: 0.3066038, b: 0.3066038, a: 0}
-  _colorSpeed: 1
+  _colorSpeed: 0.75
   _limit: 0.99
 --- !u!1 &836399753900429027
 GameObject:
@@ -71841,7 +71841,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _smokeTransform: {fileID: 1507886825382258200}
   _emojiTransform: {fileID: 2772976987802463224}
-  _hitTransform: {fileID: 0}
 --- !u!1 &6064292511937783637
 GameObject:
   m_ObjectHideFlags: 0
