@@ -10,31 +10,47 @@ namespace UILogic
     public class SpeedProgressionVisualizer : MonoBehaviour
     {
         [SerializeField] private RectTransform _rect;
+        [SerializeField] private float _lerpSpeed;
         
         [SerializeField] private Image _image;
         [SerializeField] private float _duration;
         [SerializeField] private float _scaleMin;
         [SerializeField] private float _scaleMax;
 
+        private PlayerLogicService _playerLogicService;
+
+        private float _maxValue, _minValue;
+        
         private Tween _tween;
         
-        private BoostParametersContainer _boostValues;
-        
-        public void Init(BoostParametersContainer bp)
+        private void Awake()
         {
-            _boostValues = bp;
+            var player = FindObjectOfType<PlayerLogicService>();
+            if (player != null)
+            {
+                _playerLogicService = player;
+
+                _maxValue = _playerLogicService.BoostData._maxSpeed;
+                _minValue = _playerLogicService.BoostData._minSpeed;
+            }
+            else throw new NullReferenceException("Cant Find Player on scene!!");
         }
 
-        public void UpdateValue(float curValue)
+        private void Update()
         {
-            float range = _boostValues._maxSpeed - _boostValues._minSpeed;
-            float cur = curValue-_boostValues._minSpeed;
+            float range = _maxValue - _minValue;
+            float current = _playerLogicService.ProgressValue - _minValue;
 
-            float res = Mathf.Clamp(cur / range, 0f, 1f);
+            float res = Mathf.Clamp(current / range, 0f, 1f);
+            
+            _image.fillAmount = Mathf.Lerp(_image.fillAmount, res, Time.deltaTime * _lerpSpeed);
+            
+            CheckFill(res);
+        }
 
-            _image.fillAmount = res;
-
-            if (Math.Abs(res - 1f) < Mathf.Epsilon)
+        private void CheckFill(float res)
+        {
+            if (Math.Abs(res - 1f) <= Mathf.Epsilon)
             {
                 if (_tween == null)
                 {
@@ -44,7 +60,7 @@ namespace UILogic
                     _tween.Play();
                 }
             }
-            else if (_tween != null)
+            else if(_tween != null)
             {
                 _tween.Kill();
                 _rect.localScale = Vector3.one * _scaleMin;

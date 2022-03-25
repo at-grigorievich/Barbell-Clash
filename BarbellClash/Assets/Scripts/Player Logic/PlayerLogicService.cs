@@ -4,9 +4,7 @@ using ATG.LevelControl;
 using ATGStateMachine;
 using Barbell;
 using Debrief;
-using UILogic;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Zenject;
 
 namespace PlayerLogic
@@ -38,6 +36,7 @@ namespace PlayerLogic
         
         public Transform MyTransform => transform;
         
+        public float ProgressValue { get; private set; }
 
         [Inject]
         private void Constructor(ILevelSystem levelSystem,ILevelStatus lvlStat, IInputable inputService,
@@ -65,6 +64,10 @@ namespace PlayerLogic
                                     $"isnt barbell level data !");
         }
 
+        private void Awake()
+        {
+            ProgressValue = BoostData._minSpeed;
+        }
         private void Update()
         {
             OnExecute();
@@ -74,10 +77,14 @@ namespace PlayerLogic
         {
             SpeedParameters.MovementSpeed
                 = BoostData.BoostCurrentSpeed(SpeedParameters.MovementSpeed);
+            
+            ProgressValue = SpeedParameters.MovementSpeed;
         }
         public void RemoveBoostSpeed()
         {
             float curSpeed = SpeedParameters.MovementSpeed;
+            
+            ProgressValue = 0f;
             
             SpeedParameters.MovementSpeed = 
                 BoostData.DebuffCurrentSpeed();
@@ -89,5 +96,6 @@ namespace PlayerLogic
                 SpeedParameters.MovementSpeed = curSpeed;
             }
         }
+        
     }
 }
