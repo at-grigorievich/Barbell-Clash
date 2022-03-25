@@ -14,7 +14,7 @@ namespace PlayerLogic
 
         public float BoostCurrentSpeed(float currentSpeed)
         {
-            float nextSpeed = currentSpeed + _deltaBoostSpeed*Time.deltaTime;
+            float nextSpeed = currentSpeed + _deltaBoostSpeed;
             return Mathf.Clamp(nextSpeed, _minSpeed, _maxSpeed);
         }
         public float DebuffCurrentSpeed() => _minSpeed/2f;

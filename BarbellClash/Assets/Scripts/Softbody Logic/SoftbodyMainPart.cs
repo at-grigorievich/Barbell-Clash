@@ -23,7 +23,7 @@ namespace Softbody
         [Inject] private IAnimator _animator;
         [Inject] private IVisualable _visualable;
         [Inject] private IBoostable _boostable;
-        
+
         public event EventHandler OnCrushStart;
         public event EventHandler OnCrushContinue;
         public event EventHandler OnCrushEnd;
@@ -31,6 +31,13 @@ namespace Softbody
         private CrushType _crushType = CrushType.Ignore;
         
         private ICrushable _kinematic;
+
+        private Action _addBoostSpeed;
+
+        private void Awake()
+        {
+            _addBoostSpeed = AddBoostSpeed;
+        }
 
         public void DisableDetecting()
         {
@@ -74,7 +81,7 @@ namespace Softbody
                 {
                     if (_crushType == CrushType.Crush)
                     {
-                        _boostable.AddBoostSpeed();
+                        _addBoostSpeed?.Invoke();
                         OnCrushContinue?.Invoke(this,EventArgs.Empty);
                     }
                 }
@@ -121,6 +128,12 @@ namespace Softbody
             _boostable.RemoveBoostSpeed();
             
             ChangeBarbellIgnoreMovement(crushable,true);
+        }
+        
+        private void AddBoostSpeed()
+        {
+            _boostable.AddBoostSpeed();
+            _addBoostSpeed = null;
         }
         
     }
