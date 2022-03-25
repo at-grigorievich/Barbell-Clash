@@ -25,30 +25,23 @@ namespace Debrief
             _blocks = Array.FindAll(_levelSystem.BlockInstances, b => b is BonusBlock)
                 .Cast<BonusBlock>()
                 .ToArray();
+            Array.Sort(_blocks, 
+                (f, s) 
+                    => f.NeedProgressValue > s.NeedProgressValue ? 1 : -1);
         }
 
         private void OnDebriefStart(object sender, EventArgs e)
         {
-            float curSpeed = _player.SpeedParameters.MovementSpeed;
+            float curSpeed = _player.ProgressValue;
 
-            int bb = Array.FindIndex(_blocks, b => b.NeedSpeed > curSpeed);
-            
-            if (bb == -1)
+            BonusBlock bb = _blocks.FirstOrDefault(b => b.NeedProgressValue > curSpeed);
+            if (bb == null)
             {
-                TargetPoint = _blocks.Last();
-                _blocks.Last().EnableBodybuilder();
-                return;
+                bb = _blocks.Last();
             }
 
-            if (bb == 0)
-            {
-                TargetPoint = _blocks.First();
-                _blocks.First().EnableBodybuilder();
-                return;
-            }
-
-            TargetPoint = _blocks[bb - 1];
-            _blocks[bb - 1].EnableBodybuilder();
+            TargetPoint = bb;
+            TargetPoint.EnableBodybuilder();
         }
     }
 }

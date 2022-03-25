@@ -2,7 +2,6 @@
 using Barbell;
 using Debrief;
 using PlayerLogic;
-using UILogic;
 using UnityEngine;
 
 namespace ATG.LevelControl
@@ -15,8 +14,9 @@ namespace ATG.LevelControl
         [field: SerializeField]
         public int BoostIndex { get; private set; }
         
+        [field: Range(0f,1f)]
         [field: SerializeField]
-        public float NeedSpeed { get; private set; }
+        public float NeedProgressValue { get; private set; }
 
         private Action<BarbellLogic> _addScaleCallback;
 
@@ -27,12 +27,10 @@ namespace ATG.LevelControl
             _player = FindObjectOfType<PlayerLogicService>();
             
             _bodybuilder.gameObject.SetActive(false);
-            _addScaleCallback = (BarbellLogic bl) =>
+            _addScaleCallback = (bl) =>
             {
                 _addScaleCallback = null;
                 bl.AddScale(_addScale);
-
-                _player.SpeedParameters.MovementSpeed -= 1.6f;
             };
         }
 

@@ -3,19 +3,20 @@ using ATG.LevelControl;
 using ATGStateMachine;
 using Barbell;
 using Debrief;
+using DG.Tweening;
 using UnityEngine;
 
 namespace PlayerLogic
 {
     public class PlayerDebriefState: BaseStatement<IControllable>
     {
+        public const float JumpPower = 15f;
+        public const float JumpDuration = 1.5f;
+        
         private readonly IBonusDetector _bonusDetector;
         private readonly BarbellLogic _barbell;
         private readonly ILevelStatus _lvlStatus;
         
-        private const float _debriefMove = 30f;
-
-        private Action _onGetBonus;
         private Action _moving;
         
         public PlayerDebriefState(IControllable mainObject, IStateSwitcher stateSwitcher,
@@ -31,49 +32,31 @@ namespace PlayerLogic
         public override void Enter()
         {
             _barbell.StopRotatePlates();
-            
-            Vector3 blPos = _barbell.transform.position;
-            blPos.y = 8f;
-
-            _barbell.transform.position = blPos;
-            
-            _onGetBonus = OnGetBonus;
             _moving = Moving;
+        }
+        public override void Execute()
+        {
+            _moving?.Invoke();
         }
 
         private void Moving()
         {
             if (_bonusDetector.TargetPoint != null)
             {
+                _moving = null;
+
                 Vector3 target = _bonusDetector.TargetPoint.transform.position;
-                float distance = Mathf.Abs(_barbell.transform.position.z - target.z);
 
-                if (distance > 1f)
-                {
-                    Vector3 blTarget = _barbell.transform.position;
-                    blTarget.z = target.z;
-
-                    _barbell.transform.position = Vector3.MoveTowards(_barbell.transform.position, blTarget,
-                        _debriefMove * Time.deltaTime);
-                }
-                else _onGetBonus?.Invoke();
+                _barbell.transform
+                    .DOJump(target, JumpPower, 1,JumpDuration)
+                    .OnComplete(OnGetBonus);
             }
         }
 
         private void OnGetBonus()
         {
-            _onGetBonus = null;
-            _moving = null;
-            
-            MainObject.CinemachineService.Off();
-            _bonusDetector.TargetPoint.ActivateBodybuilder(_barbell.gameObject);
-            
             _lvlStatus.CompleteLevel();
         }
-
-        public override void Execute()
-        {
-            _moving?.Invoke();
-        }
+        
     }
 }
