@@ -116,6 +116,8 @@ namespace Softbody
             _visualable.ShowDieEmotion();
             _visualable.ShowHitDie(position);
             
+            _boostable.RemoveBoostSpeed();
+            
             ChangeBarbellIgnoreMovement(crushable,true);
         }
         

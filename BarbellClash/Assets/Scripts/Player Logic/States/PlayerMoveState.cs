@@ -42,7 +42,6 @@ namespace PlayerLogic
 
         public override void Execute()
         {
-            //MainObject.SpeedProgressionVisualizer.UpdateValue(MainObject.SpeedParameters.MovementSpeed);
             Vector3 direction = Vector3.forward * MainObject.SpeedParameters.MovementSpeed * Time.deltaTime;
             _kinematic.DoMove(direction);
         }

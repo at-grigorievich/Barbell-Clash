@@ -7,6 +7,7 @@ namespace PlayerLogic
     public class BoostParametersContainer
     {
         [field: SerializeField] private float _deltaBoostSpeed;
+        [field: SerializeField] public float DebuffDelay { get; private set; }
         [field: Space(15)] 
         [field: SerializeField] public float _minSpeed { get; private set; }
         [field: SerializeField] public float _maxSpeed { get; private set; }
@@ -16,10 +17,6 @@ namespace PlayerLogic
             float nextSpeed = currentSpeed + _deltaBoostSpeed*Time.deltaTime;
             return Mathf.Clamp(nextSpeed, _minSpeed, _maxSpeed);
         }
-
-        public float DebuffCurrentSpeed(float currentSpeed)
-        {
-            return _minSpeed;
-        }
+        public float DebuffCurrentSpeed() => _minSpeed/2f;
     }
 }

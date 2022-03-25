@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using ATG.LevelControl;
 using ATGStateMachine;
 using Barbell;
@@ -13,6 +14,8 @@ namespace PlayerLogic
     [Serializable]
     public class SpeedValues
     {
+        [SerializeField]
+        
         [field: SerializeField]
         public float MovementSpeed { get; set; }
         
@@ -24,26 +27,17 @@ namespace PlayerLogic
     
     public class PlayerLogicService: StatementBehaviour<IControllable>, IControllable, IBoostable
     {
-        [SerializeField] private GameObject _cinemachineObject;
-
         [field: SerializeField] 
         public BoostParametersContainer BoostData { get; private set; }
         
         [field: SerializeField]
         public SpeedValues SpeedParameters { get; private set; }
-
-        [field: SerializeField]
-        public SpeedProgressionVisualizer SpeedProgressionVisualizer { get; private set; }
-
+        
         public ICinemachinable CinemachineService { get; private set; }
         public IInputable InputService { get; private set; }
         
         public Transform MyTransform => transform;
-
-        private void Awake()
-        {
-            SpeedProgressionVisualizer.Init(BoostData);
-        }
+        
 
         [Inject]
         private void Constructor(ILevelSystem levelSystem,ILevelStatus lvlStat, IInputable inputService,
@@ -73,7 +67,6 @@ namespace PlayerLogic
 
         private void Update()
         {
-            SpeedProgressionVisualizer.UpdateValue(SpeedParameters.MovementSpeed);
             OnExecute();
         }
 
@@ -85,8 +78,17 @@ namespace PlayerLogic
 
         public void RemoveBoostSpeed()
         {
+            float curSpeed = SpeedParameters.MovementSpeed;
+            
             SpeedParameters.MovementSpeed = 
                 BoostData.DebuffCurrentSpeed(SpeedParameters.MovementSpeed);
+
+            StartCoroutine(AnimateReturnSpeed());
+            IEnumerator AnimateReturnSpeed()
+            {
+                yield return new WaitForSeconds(BoostData.DebuffDelay);
+                SpeedParameters.MovementSpeed = curSpeed;
+            }
         }
     }
 }
