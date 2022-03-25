@@ -8,6 +8,9 @@
         ButtonClick,
         Death,
         Confetti,
-        Poof
+        Poof,
+        Smoke,
+        CompleteEmoji,
+        FailedEmoji
     }
 }

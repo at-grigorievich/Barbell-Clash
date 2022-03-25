@@ -19,6 +19,7 @@ namespace Softbody
         
         [Inject] protected IAnimator _softbodyAnimator;
         [Inject] protected IDieInteractable _dieInteractable;
+        [Inject] protected IVisualable _visual;
         
         protected ObiSolver _solver;
         protected ObiFixedUpdater _obiFixedUpdater;
@@ -71,6 +72,7 @@ namespace Softbody
         {
             DoDisableDetecting();
             _dieInteractable.AnimateDie();
+            _visual.ShowDieEmotion();
         }
         
 

@@ -17,6 +17,7 @@ namespace Softbody
         [ContextMenu("Test Animation")]
         public override void AnimateDie()
         {
+            base.AnimateDie();
             _shakeAss.transform.localPosition = _targetPosition;
             _shakeAss.transform.DOPunchRotation(_punchForce, _duration);
         }

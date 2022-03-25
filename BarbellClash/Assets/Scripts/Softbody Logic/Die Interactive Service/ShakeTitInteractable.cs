@@ -13,6 +13,7 @@ namespace Softbody
         [ContextMenu("Test Animation")]
         public override void AnimateDie()
         {
+            base.AnimateDie();
             DOTween.Sequence()
                 .Append(_shakeTit.transform.DOPunchRotation(_punchForce, _duration))
                 .SetLoops(2,LoopType.Incremental);

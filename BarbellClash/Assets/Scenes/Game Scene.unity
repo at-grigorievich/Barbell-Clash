@@ -298,8 +298,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198260622}
-  m_LocalRotation: {x: 0.16266018, y: -0.07067109, z: 0.011678827, w: 0.9840787}
-  m_LocalPosition: {x: 2.34, y: 7.72, z: -18.79}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -18.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -384,6 +384,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _virtualCamera: {fileID: 2145343387}
   _cameraLocker: {fileID: 2145343390}
+--- !u!1 &894673610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 894673611}
+  - component: {fileID: 894673612}
+  m_Layer: 0
+  m_Name: VFX Creator Service
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &894673611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894673610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8672359244967675804}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &894673612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894673610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29eb0bcfbd15634e91a0599ca9c65e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &912167654
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,6 +760,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boostInstance: {fileID: 198260623}
+--- !u!1 &2010469321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2010469322}
+  - component: {fileID: 2010469323}
+  m_Layer: 0
+  m_Name: VFX Creator Installer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2010469322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010469321}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8271954859626219802}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2010469323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010469321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1f3d383842dc9b47be2514bfd4a6253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creatorService: {fileID: 894673612}
 --- !u!1 &2145343386
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +902,7 @@ Transform:
   - {fileID: 1016969499}
   - {fileID: 90399650}
   - {fileID: 1992481190}
+  - {fileID: 2010469322}
   m_Father: {fileID: 8271954860091290226}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1034,6 +1122,7 @@ MonoBehaviour:
   - {fileID: 1016969500}
   - {fileID: 90399651}
   - {fileID: 1992481191}
+  - {fileID: 2010469323}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1082,6 +1171,7 @@ Transform:
   - {fileID: 8672359246869907510}
   - {fileID: 1514510264}
   - {fileID: 374836259}
+  - {fileID: 894673611}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

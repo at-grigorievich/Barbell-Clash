@@ -1,12 +1,15 @@
 ﻿using System;
 using Barbell;
+using Softbody.Interfaces;
 using UnityEngine;
+using Zenject;
 
 namespace Softbody
 {
     public class SoftbodyMainPart : MonoBehaviour
     {
         [SerializeField] private Collider _collider;
+        [Inject] private IVisualable _visualable;
         
         public event EventHandler OnCrushStart;
         public event EventHandler OnCrushContinue;
@@ -28,6 +31,9 @@ namespace Softbody
             if (other.attachedRigidbody.TryGetComponent(out ICrushable kinematic))
             {
                 _kinematic = kinematic;
+                
+                _visualable.SmokeAfterShake();
+                _visualable.ShowCompleteEmotion();
                 
                 kinematic.SetCrushCollider(true);
                 OnCrushStart?.Invoke(this,EventArgs.Empty);
