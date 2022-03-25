@@ -20,6 +20,7 @@ namespace Softbody
         [Inject(Id = "NeedPlate")] private uint _neededPlateId;
         
         [Inject] private IDieInteractable _dieInteractable;
+        [Inject] private IAnimator _animator;
         [Inject] private IVisualable _visualable;
         [Inject] private IBoostable _boostable;
         
@@ -112,6 +113,7 @@ namespace Softbody
         private void DoDieSoftbody(ICrushable crushable, Vector3 position)
         {
             _dieInteractable.AnimateDie();
+            _animator.Die();
             
             _visualable.ShowDieEmotion();
             _visualable.ShowHitDie(position);

@@ -3,13 +3,17 @@ using UnityEngine;
 
 namespace Softbody
 {
-    public class NonRiggable : MonoBehaviour, IRiggable
+    public class NonRiggable : RigLogic
     {
-        public void Idle()
+        public override void Idle()
         {
         }
 
-        public void Crush()
+        public override void Crush()
+        {
+        }
+
+        public override void Die()
         {
         }
     }

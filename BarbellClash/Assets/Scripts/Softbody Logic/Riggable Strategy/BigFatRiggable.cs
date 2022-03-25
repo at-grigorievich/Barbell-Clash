@@ -6,12 +6,12 @@ using UnityEngine.Animations.Rigging;
 
 namespace Softbody
 {
-    public class BigFatRiggable : MonoBehaviour, IRiggable
+    public class BigFatRiggable : RigLogic
     {
         [SerializeField] private Rig _idleRig;
         [SerializeField] private Rig _crushRig;
         
-        public void Idle()
+        public override void Idle()
         {
             StartCoroutine(WaitToSet(() =>
             {
@@ -20,7 +20,7 @@ namespace Softbody
             }));
         }
 
-        public void Crush()
+        public override void Crush()
         {
             StartCoroutine(WaitToSet(() =>
             {
@@ -28,11 +28,7 @@ namespace Softbody
                 _crushRig.weight = 1f;
             }));
         }
-        
-        private IEnumerator WaitToSet(Action callback)
-        {
-            yield return new WaitForEndOfFrame();
-            callback?.Invoke();
-        }
+
+        public override void Die() {}
     }
 }

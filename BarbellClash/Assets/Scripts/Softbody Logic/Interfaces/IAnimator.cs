@@ -4,5 +4,6 @@
     {
         void Idle();
         void Crush();
+        void Die();
     }
 }

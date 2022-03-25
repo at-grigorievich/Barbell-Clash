@@ -1,5 +1,4 @@
-﻿using System;
-using AnimatorControl;
+﻿using AnimatorControl;
 using Softbody.Interfaces;
 using UnityEngine;
 
@@ -25,6 +24,11 @@ namespace Softbody
         {
             _riggable.Crush();
             SetOneState(AnimatorAction.Crush, true);
+        }
+
+        public void Die()
+        {
+            _riggable.Die();
         }
     }
 }

@@ -1,24 +1,22 @@
 ﻿using System;
-using System.Collections;
-using Softbody.Interfaces;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
 namespace Softbody
 {
-    public class BigAssRiggable : MonoBehaviour, IRiggable
+    public class BigAssRiggable : RigLogic
     {
         [SerializeField] private ChainIKConstraint _torsoChain;
         [SerializeField] private ChainIKConstraint _leftHandChain;
         [SerializeField] private ChainIKConstraint _rightHandChain;
 
 
-        public void Idle()
+        public override void Idle()
         {
             StartCoroutine(WaitToSet(() => _torsoChain.weight = 1f));
         }
 
-        public void Crush()
+        public override void Crush()
         {
             StartCoroutine(WaitToSet(() =>
             {
@@ -28,10 +26,6 @@ namespace Softbody
             }));
         }
 
-        private IEnumerator WaitToSet(Action callback)
-        {
-            yield return new WaitForEndOfFrame();
-            callback?.Invoke();
-        }
+        public override void Die(){}
     }
 }
