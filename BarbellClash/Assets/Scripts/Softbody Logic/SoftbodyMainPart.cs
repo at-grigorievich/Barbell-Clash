@@ -1,5 +1,6 @@
 ﻿using System;
 using Barbell;
+using PlayerLogic;
 using Softbody.Interfaces;
 using UnityEngine;
 using Zenject;
@@ -20,7 +21,8 @@ namespace Softbody
         
         [Inject] private IDieInteractable _dieInteractable;
         [Inject] private IVisualable _visualable;
-
+        [Inject] private IBoostable _boostable;
+        
         public event EventHandler OnCrushStart;
         public event EventHandler OnCrushContinue;
         public event EventHandler OnCrushEnd;
@@ -60,7 +62,6 @@ namespace Softbody
                 }
             }
         }
-
         private void OnTriggerStay(Collider other)
         {
             if (_kinematic == null || other.attachedRigidbody == null)
@@ -72,6 +73,7 @@ namespace Softbody
                 {
                     if (_crushType == CrushType.Crush)
                     {
+                        _boostable.AddBoostSpeed();
                         OnCrushContinue?.Invoke(this,EventArgs.Empty);
                     }
                 }
@@ -107,7 +109,6 @@ namespace Softbody
 
             _crushType = CrushType.Crush;
         }
-
         private void DoDieSoftbody(ICrushable crushable, Vector3 position)
         {
             _dieInteractable.AnimateDie();
