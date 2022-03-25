@@ -47,6 +47,8 @@ namespace PlayerLogic
                 BarbellLogic bl = barbellLevelData.BarbellInitialConfig.InstantiateBarbell(barbelFactory);
                 
                 CinemachineService.InitCinemachine(bl.transform,barbellLevelData.CameraInitialConfig);
+                lvlStat.OnDebriefStart += (sender, args) => CinemachineService.SetFOV(100f);
+                
                 
                 AllStates.Add(new PlayerBriefState(this,this));
                 AllStates.Add(new PlayerMoveState(this,this,bl,lvlStat));

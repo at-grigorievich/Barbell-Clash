@@ -109,6 +109,17 @@ namespace Barbell
             _rotatePlates.Clear();
         }
 
+        public void IncreaseScale(Vector3 addScale)
+        {
+            foreach (var sortedPlate in _sortedPlates)
+            {
+                Vector3 curScale = sortedPlate.transform.localScale;
+                curScale += addScale;
+
+                sortedPlate.transform.DOScale(curScale,0.25f);
+            }
+        }
+
 
         private void RemoveAllPlates()
         {

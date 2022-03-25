@@ -118,8 +118,7 @@ namespace Barbell
                 UpdateMovingHeightStatus();
             }
         }
-        
-        
+
         public void AddPlate(PlateLogic platePrafab)
         {
             foreach (var plateContainer in _plateContainers)
@@ -136,6 +135,8 @@ namespace Barbell
                 plateContainer.StartRotatePlates();
             }
         }
+
+        public void StopRotatePlates() => EndAnimatePlatesRotate();
         private void EndAnimatePlatesRotate()
         {
             foreach (var plateContainer in _plateContainers)
@@ -149,6 +150,14 @@ namespace Barbell
             _crushCollider.enabled = enabled;
         }
 
+        
+        public void AddScale(Vector3 scale)
+        {
+            foreach (var plateContainer in _plateContainers)
+            {
+                plateContainer.IncreaseScale(scale);
+            }
+        }
 
         private void UpdateMovingHeightStatus()
         {

@@ -25,6 +25,8 @@ namespace PlayerLogic
 
         public override void Enter()
         {
+            _barbell.StopRotatePlates();
+            
             Vector3 blPos = _barbell.transform.position;
             blPos.y = 8f;
 

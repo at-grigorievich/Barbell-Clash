@@ -33,7 +33,6 @@ namespace Debrief
 
             int bb = Array.FindIndex(_blocks, b => b.NeedSpeed > curSpeed);
             
-            Debug.Log(bb);
             if (bb == -1)
             {
                 TargetPoint = _blocks.Last().transform.position;

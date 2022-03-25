@@ -389,5 +389,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: {x: 0, y: 0, z: 15}
+  _addScale: {x: 0, y: 0.1, z: 0.1}
   <BoostIndex>k__BackingField: 1
   <NeedSpeed>k__BackingField: 11

@@ -16,5 +16,10 @@ namespace PlayerLogic
             _cameraLocker.LockPosition = cameraConfig.CamPosition;
             _cameraLocker.LockRotation = cameraConfig.CamRotation;
         }
+
+        public void SetFOV(float nextFOV)
+        {
+            _virtualCamera.m_Lens.FieldOfView = nextFOV;
+        }
     }
 }

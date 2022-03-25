@@ -1,4 +1,6 @@
-﻿namespace Barbell
+﻿using UnityEngine;
+
+namespace Barbell
 {
     public interface IPlateContainer
     {
@@ -10,6 +12,6 @@
         void StartRotatePlates();
         void StopRotatePlates();
 
-        float IncreaseScale();
+        void IncreaseScale(Vector3 addScale);
     }
 }
