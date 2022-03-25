@@ -19,9 +19,6 @@ namespace Softbody
         public float YDelta { get; private set; }
 
         [Inject] protected IAnimator _softbodyAnimator;
-        [Inject] protected IDieInteractable _dieInteractable;
-        [Inject] protected IVisualable _visual;
-        
         protected ObiSolver _solver;
         protected ObiFixedUpdater _obiFixedUpdater;
 
@@ -56,11 +53,13 @@ namespace Softbody
         public void SetSoftbodyActive(bool isActive)
         {
             if(isActive)
-                _softbodyAnimator.Crush();
+                AnimateCrush();
             
             _solver.enabled = isActive;
             _obiFixedUpdater.enabled = isActive;
         }
+
+        public void AnimateCrush() => _softbodyAnimator.Crush();
         
         public class Factory: PlaceholderFactory<GameObject,SoftbodyLogic>{}
     }

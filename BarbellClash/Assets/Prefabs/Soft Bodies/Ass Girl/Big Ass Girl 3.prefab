@@ -2488,6 +2488,7 @@ MonoBehaviour:
   - {fileID: 8098318702006241706}
   - {fileID: 371483886449423390}
   - {fileID: 8380460501853023427}
+  - {fileID: 7044646395900516062}
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
@@ -2631,6 +2632,7 @@ Transform:
   - {fileID: 3964701393838417387}
   - {fileID: 6865838119245909744}
   - {fileID: 3517266896522312593}
+  - {fileID: 1741023584015430119}
   m_Father: {fileID: 5805490269680321266}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74741,6 +74743,50 @@ Transform:
   m_Father: {fileID: 8397200306367451313}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8284289370106721609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1741023584015430119}
+  - component: {fileID: 7044646395900516062}
+  m_Layer: 0
+  m_Name: Need Plate Id Installer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1741023584015430119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284289370106721609}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7027897431770863708}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7044646395900516062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284289370106721609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a8c127877c644e0b79b4edb39b016d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sl: {fileID: 1259037322171359474}
 --- !u!1 &8287072692245623744
 GameObject:
   m_ObjectHideFlags: 0

@@ -60,6 +60,10 @@ public class SoftbodyBlock : EnvironmentBlock
                 Softbody.SetSoftbodyActive(true);
                 _upBerbellCollider?.Invoke(k);
             }
+            else if(k.MaxPlateId > Softbody.NeededPlateId)
+            {
+                Softbody.AnimateCrush();
+            }
         }
     }
     private void OnTriggerExit(Collider other)
