@@ -154,8 +154,11 @@ namespace Barbell
 
         private IEnumerator AnimateCurrentPlates()
         {
-            foreach (var sortedPlate in _sortedPlates)
+            var sp = (PlateLogic[])_sortedPlates.ToArray().Clone();
+            foreach (var sortedPlate in sp)
             {
+                if(sortedPlate == null)
+                    continue;
                 if (sortedPlate.transform.localScale == sortedPlate.MeshSize)
                 {
                     AnimateScale(sortedPlate);
