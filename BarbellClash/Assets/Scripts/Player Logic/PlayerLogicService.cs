@@ -2,6 +2,7 @@
 using ATG.LevelControl;
 using ATGStateMachine;
 using Barbell;
+using Debrief;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Zenject;
@@ -22,7 +23,8 @@ namespace PlayerLogic
     
     public class PlayerLogicService: StatementBehaviour<IControllable>, IControllable, IBoostable
     {
-        [SerializeField] private BoostParametersContainer _boostData;
+        [field: SerializeField] 
+        public BoostParametersContainer BoostData { get; private set; }
         
         [field: SerializeField]
         public SpeedValues SpeedParameters { get; private set; }
@@ -35,7 +37,7 @@ namespace PlayerLogic
 
         [Inject]
         private void Constructor(ILevelSystem levelSystem,ILevelStatus lvlStat, IInputable inputService,
-            BarbellLogic.Factory barbelFactory,ICinemachinable camService)
+            BarbellLogic.Factory barbelFactory,ICinemachinable camService, IBonusDetector bd)
         {
             InputService = inputService;
             CinemachineService = camService;
@@ -48,7 +50,7 @@ namespace PlayerLogic
                 
                 AllStates.Add(new PlayerBriefState(this,this));
                 AllStates.Add(new PlayerMoveState(this,this,bl,lvlStat));
-                AllStates.Add(new PlayerDebriefState(this,this));
+                AllStates.Add(new PlayerDebriefState(this,this,bl,bd));
                 InitStartState();
                 OnState();
             }
@@ -65,13 +67,13 @@ namespace PlayerLogic
         public void AddBoostSpeed()
         {
             SpeedParameters.MovementSpeed
-                = _boostData.BoostCurrentSpeed(SpeedParameters.MovementSpeed);
+                = BoostData.BoostCurrentSpeed(SpeedParameters.MovementSpeed);
         }
 
         public void RemoveBoostSpeed()
         {
             SpeedParameters.MovementSpeed = 
-                _boostData.DebuffCurrentSpeed(SpeedParameters.MovementSpeed);
+                BoostData.DebuffCurrentSpeed(SpeedParameters.MovementSpeed);
         }
     }
 }

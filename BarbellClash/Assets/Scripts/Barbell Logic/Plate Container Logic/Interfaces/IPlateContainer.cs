@@ -9,5 +9,7 @@
 
         void StartRotatePlates();
         void StopRotatePlates();
+
+        float IncreaseScale();
     }
 }

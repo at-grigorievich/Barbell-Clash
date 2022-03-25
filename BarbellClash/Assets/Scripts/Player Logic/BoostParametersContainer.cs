@@ -8,8 +8,8 @@ namespace PlayerLogic
     {
         [field: SerializeField] private float _deltaBoostSpeed;
         [field: Space(15)] 
-        [field: SerializeField] private float _minSpeed;
-        [field: SerializeField] private float _maxSpeed;
+        [field: SerializeField] public float _minSpeed { get; private set; }
+        [field: SerializeField] public float _maxSpeed { get; private set; }
 
         public float BoostCurrentSpeed(float currentSpeed)
         {

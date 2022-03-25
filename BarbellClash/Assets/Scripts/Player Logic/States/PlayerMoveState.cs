@@ -24,6 +24,11 @@ namespace PlayerLogic
             MainObject.InputService.OnStartTouch += OnStartTouch;
             MainObject.InputService.OnEndTouch += OnEndTouch;
         }
+        public override void Exit()
+        {
+            MainObject.InputService.OnStartTouch -= OnStartTouch;
+            MainObject.InputService.OnEndTouch -= OnEndTouch;
+        }
 
         private void OnEndTouch(object sender, EventArgs e)
         {

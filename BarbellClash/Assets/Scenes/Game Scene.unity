@@ -241,10 +241,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03ac2c26477f4b8e969a49f1187b5aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boostData:
+  <BoostData>k__BackingField:
     _deltaBoostSpeed: 3
-    _minSpeed: 11
-    _maxSpeed: 27
+    <_minSpeed>k__BackingField: 11
+    <_maxSpeed>k__BackingField: 27
   <SpeedParameters>k__BackingField:
     <MovementSpeed>k__BackingField: 15
     <DropSpeed>k__BackingField: 60
@@ -769,6 +769,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1508062301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1508062302}
+  - component: {fileID: 1508062303}
+  m_Layer: 0
+  m_Name: Bonus Detector Installer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1508062302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508062301}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8271954859626219802}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1508062303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508062301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0800cc3cbdd446b9a5c590c3d816113a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _debrief: {fileID: 2133778082}
 --- !u!1 &1514510263
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,6 +944,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatorService: {fileID: 894673612}
+--- !u!1 &2133778080
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2133778081}
+  - component: {fileID: 2133778082}
+  m_Layer: 0
+  m_Name: Bonus Detector Service
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2133778081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133778080}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8672359244967675804}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2133778082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133778080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5271bc5776a2422199ff8a70c968c650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 198260623}
 --- !u!1 &2145343386
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,6 +1087,7 @@ Transform:
   - {fileID: 90399650}
   - {fileID: 1992481190}
   - {fileID: 2010469322}
+  - {fileID: 1508062302}
   m_Father: {fileID: 8271954860091290226}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1219,6 +1308,7 @@ MonoBehaviour:
   - {fileID: 90399651}
   - {fileID: 1992481191}
   - {fileID: 2010469323}
+  - {fileID: 1508062303}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1268,6 +1358,7 @@ Transform:
   - {fileID: 1514510264}
   - {fileID: 374836259}
   - {fileID: 894673611}
+  - {fileID: 2133778081}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -7,6 +7,7 @@ namespace ATG.LevelControl
         [field: SerializeField]
         public int BoostIndex { get; private set; }
         
-        
+        [field: SerializeField]
+        public float NeedSpeed { get; private set; }
     }
 }
