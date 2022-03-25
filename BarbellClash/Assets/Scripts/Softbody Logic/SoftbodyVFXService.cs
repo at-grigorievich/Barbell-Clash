@@ -9,6 +9,7 @@ namespace Softbody
     {
         [SerializeField] private Transform _smokeTransform;
         [SerializeField] private Transform _emojiTransform;
+        [SerializeField] private Transform _hitTransform;
         
         [Inject] private IVFXControllable _vfxControllable;
 
@@ -25,6 +26,12 @@ namespace Softbody
         public void ShowDieEmotion()
         {
             ParticleSystem ps = _vfxControllable.PlayVFX(VFXType.FailedEmoji, _emojiTransform.position, Vector3.zero);
+        }
+
+        public void ShowHitDie(Vector3 position)
+        {
+            ParticleSystem ps = _vfxControllable.PlayVFXLoop(VFXType.Death, position, Vector3.zero);
+            ps.Play();
         }
     }
 }

@@ -15,8 +15,9 @@ namespace Softbody
         [SerializeField] private Vector3 _scale;
         [field: Space(10)]
         [field: SerializeField]
+       
         public float YDelta { get; private set; }
-        
+
         [Inject] protected IAnimator _softbodyAnimator;
         [Inject] protected IDieInteractable _dieInteractable;
         [Inject] protected IVisualable _visual;
@@ -24,7 +25,7 @@ namespace Softbody
         protected ObiSolver _solver;
         protected ObiFixedUpdater _obiFixedUpdater;
 
-        private SoftbodyMainPart _mainPart;
+        public SoftbodyMainPart MainPart { get; private set; }
         
         public uint NeededPlateId => _neededPlateData.Id;
         
@@ -44,15 +45,14 @@ namespace Softbody
         [Inject]
         private void Constructor(SoftbodyMainPart mainPart, SoftBodyCrushDetect crushDetect)
         {
-            _mainPart = mainPart;
+            MainPart = mainPart;
 
             mainPart.OnCrushContinue += (sender, args) =>
                 crushDetect.ColorMainSoftbodyPart();
             mainPart.OnCrushEnd += (sender, args) =>
                 _solver.parameters.damping = 1f;
         }
-
-        public void AnimateSoftbodyCrush() => _softbodyAnimator.Crush();
+        
         public void SetSoftbodyActive(bool isActive)
         {
             if(isActive)
@@ -62,15 +62,9 @@ namespace Softbody
             _obiFixedUpdater.enabled = isActive;
         }
 
-
-        public void DoDisableDetecting()
-        {
-            _mainPart.DisableDetecting();
-        }
-
+        
         public void DoDie()
         {
-            DoDisableDetecting();
             _dieInteractable.AnimateDie();
             _visual.ShowDieEmotion();
         }
