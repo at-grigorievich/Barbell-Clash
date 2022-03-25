@@ -356,7 +356,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8bd4b91364c441d4dbe5c870e3ec79e1, type: 2}
+  - {fileID: 2100000, guid: e99867a27f322df42aa1fe104bc414cb, type: 2}
   - {fileID: 2100000, guid: 6936503c3a5b8cd42b3ff20708c7dec6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -71016,7 +71016,7 @@ GameObject:
   - component: {fileID: 4438234071727501568}
   - component: {fileID: 676898285705624174}
   m_Layer: 0
-  m_Name: Bit Tit GIrl
+  m_Name: Bit Tit GIrl 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
