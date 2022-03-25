@@ -19,9 +19,7 @@ namespace PlayerLogic
 
         public float DebuffCurrentSpeed(float currentSpeed)
         {
-            float delta = currentSpeed - _minSpeed;
-            float nextSpeed = currentSpeed - delta/2f;
-            return Mathf.Clamp(nextSpeed, _minSpeed, _maxSpeed);
+            return _minSpeed;
         }
     }
 }
