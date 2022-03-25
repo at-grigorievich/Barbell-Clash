@@ -14,6 +14,7 @@ namespace PlayerLogic
         private const float _debriefMove = 30f;
 
         private Action _onGetBonus;
+        private Action _moving;
         
         public PlayerDebriefState(IControllable mainObject, IStateSwitcher stateSwitcher,
             BarbellLogic bl,IBonusDetector bd) 
@@ -33,21 +34,17 @@ namespace PlayerLogic
             _barbell.transform.position = blPos;
             
             _onGetBonus = OnGetBonus;
+            _moving = Moving;
         }
 
-        private void OnGetBonus()
-        {
-            _onGetBonus = null;
-        }
-
-        public override void Execute()
+        private void Moving()
         {
             if (_bonusDetector.TargetPoint != null)
             {
-                Vector3 target = (Vector3) _bonusDetector.TargetPoint;
+                Vector3 target = _bonusDetector.TargetPoint.transform.position;
                 float distance = Mathf.Abs(_barbell.transform.position.z - target.z);
 
-                if (distance > Mathf.Epsilon)
+                if (distance > 1f)
                 {
                     Vector3 blTarget = _barbell.transform.position;
                     blTarget.z = target.z;
@@ -57,6 +54,20 @@ namespace PlayerLogic
                 }
                 else _onGetBonus?.Invoke();
             }
+        }
+
+        private void OnGetBonus()
+        {
+            _onGetBonus = null;
+            _moving = null;
+            
+            MainObject.CinemachineService.Off();
+            _bonusDetector.TargetPoint.ActivateBodybuilder(_barbell.gameObject);
+        }
+
+        public override void Execute()
+        {
+            _moving?.Invoke();
         }
     }
 }

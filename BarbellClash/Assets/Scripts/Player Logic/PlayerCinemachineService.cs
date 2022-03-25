@@ -21,5 +21,10 @@ namespace PlayerLogic
         {
             _virtualCamera.m_Lens.FieldOfView = nextFOV;
         }
+
+        public void Off()
+        {
+            _virtualCamera.transform.gameObject.SetActive(false);
+        }
     }
 }

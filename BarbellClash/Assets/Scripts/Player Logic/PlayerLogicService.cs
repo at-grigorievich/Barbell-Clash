@@ -23,6 +23,8 @@ namespace PlayerLogic
     
     public class PlayerLogicService: StatementBehaviour<IControllable>, IControllable, IBoostable
     {
+        [SerializeField] private GameObject _cinemachineObject;
+        
         [field: SerializeField] 
         public BoostParametersContainer BoostData { get; private set; }
         

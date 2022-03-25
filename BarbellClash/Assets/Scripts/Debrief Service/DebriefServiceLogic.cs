@@ -14,7 +14,7 @@ namespace Debrief
         [Inject] private ILevelStatus _levelStatus;
         [Inject] private ILevelSystem _levelSystem;
 
-        public Vector3? TargetPoint { get; private set; } = null;
+        public BonusBlock TargetPoint { get; private set; } = null;
 
         private BonusBlock[] _blocks;
         
@@ -35,18 +35,20 @@ namespace Debrief
             
             if (bb == -1)
             {
-                TargetPoint = _blocks.Last().transform.position;
+                TargetPoint = _blocks.Last();
+                _blocks.Last().EnableBodybuilder();
                 return;
             }
 
             if (bb == 0)
             {
-                TargetPoint = _blocks.First().transform.position;
+                TargetPoint = _blocks.First();
+                _blocks.First().EnableBodybuilder();
                 return;
             }
 
-            TargetPoint = _blocks[bb - 1].transform.position;
-
+            TargetPoint = _blocks[bb - 1];
+            _blocks[bb - 1].EnableBodybuilder();
         }
     }
 }
