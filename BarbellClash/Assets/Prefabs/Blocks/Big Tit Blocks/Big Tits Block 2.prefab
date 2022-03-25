@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: {x: 0, y: 0, z: 28}
-  _softbodyInstance: {fileID: 676898285705624174, guid: 82a02dafd166e714894df18ecb997364, type: 3}
+  _softbodyInstance: {fileID: 676898285705624174, guid: 49634e8c8a4457047b8665bfd76a190c, type: 3}
   _instanceOptions:
     <TargetPosition>k__BackingField: {fileID: 2034526457216756707}
 --- !u!65 &6651086949906100222
