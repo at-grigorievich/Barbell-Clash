@@ -81,7 +81,7 @@ namespace PlayerLogic
             float curSpeed = SpeedParameters.MovementSpeed;
             
             SpeedParameters.MovementSpeed = 
-                BoostData.DebuffCurrentSpeed(SpeedParameters.MovementSpeed);
+                BoostData.DebuffCurrentSpeed();
 
             StartCoroutine(AnimateReturnSpeed());
             IEnumerator AnimateReturnSpeed()
