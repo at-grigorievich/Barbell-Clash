@@ -75,7 +75,6 @@ namespace PlayerLogic
             SpeedParameters.MovementSpeed
                 = BoostData.BoostCurrentSpeed(SpeedParameters.MovementSpeed);
         }
-
         public void RemoveBoostSpeed()
         {
             float curSpeed = SpeedParameters.MovementSpeed;
