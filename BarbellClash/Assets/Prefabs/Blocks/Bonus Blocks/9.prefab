@@ -393,7 +393,7 @@ MonoBehaviour:
   _addScale: {x: 0, y: 0.25, z: 0.25}
   _bodybuilder: {fileID: 4497189224386470578}
   <BoostIndex>k__BackingField: 9
-  <NeedSpeed>k__BackingField: 23.8
+  <NeedSpeed>k__BackingField: 25.8
 --- !u!1001 &4144513610676385528
 PrefabInstance:
   m_ObjectHideFlags: 0

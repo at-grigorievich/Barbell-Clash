@@ -62,7 +62,7 @@ namespace PlayerLogic
                 
                 AllStates.Add(new PlayerBriefState(this,this,lvlStat));
                 AllStates.Add(new PlayerMoveState(this,this,bl,lvlStat));
-                AllStates.Add(new PlayerDebriefState(this,this,bl,bd));
+                AllStates.Add(new PlayerDebriefState(this,this,bl,bd,lvlStat));
                 InitStartState();
                 OnState();
             }

@@ -116,7 +116,8 @@ public class SoftbodyBlock : EnvironmentBlock
                 {
                     _boostService.AddBoostSpeed();
                 }
-                else if (crushable.HeightStatus == HeightStatus.Down)
+                else if (crushable.HeightStatus == HeightStatus.Down 
+                         && crushable.MaxPlateId < Softbody.NeededPlateId)
                 {
                     _boostService.RemoveBoostSpeed();
                 }
