@@ -3,6 +3,7 @@ using ATG.LevelControl;
 using ATGStateMachine;
 using Barbell;
 using Debrief;
+using UILogic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Zenject;
@@ -24,18 +25,25 @@ namespace PlayerLogic
     public class PlayerLogicService: StatementBehaviour<IControllable>, IControllable, IBoostable
     {
         [SerializeField] private GameObject _cinemachineObject;
-        
+
         [field: SerializeField] 
         public BoostParametersContainer BoostData { get; private set; }
         
         [field: SerializeField]
         public SpeedValues SpeedParameters { get; private set; }
 
+        [field: SerializeField]
+        public SpeedProgressionVisualizer SpeedProgressionVisualizer { get; private set; }
+
         public ICinemachinable CinemachineService { get; private set; }
         public IInputable InputService { get; private set; }
         
         public Transform MyTransform => transform;
 
+        private void Awake()
+        {
+            SpeedProgressionVisualizer.Init(BoostData);
+        }
 
         [Inject]
         private void Constructor(ILevelSystem levelSystem,ILevelStatus lvlStat, IInputable inputService,
@@ -43,7 +51,7 @@ namespace PlayerLogic
         {
             InputService = inputService;
             CinemachineService = camService;
-            
+
             if (levelSystem.CurrentLevel is BarbellLevelData barbellLevelData)
             {
                 BarbellLogic bl = barbellLevelData.BarbellInitialConfig.InstantiateBarbell(barbelFactory);
@@ -52,7 +60,7 @@ namespace PlayerLogic
                 lvlStat.OnDebriefStart += (sender, args) => CinemachineService.SetFOV(100f);
                 
                 
-                AllStates.Add(new PlayerBriefState(this,this));
+                AllStates.Add(new PlayerBriefState(this,this,lvlStat));
                 AllStates.Add(new PlayerMoveState(this,this,bl,lvlStat));
                 AllStates.Add(new PlayerDebriefState(this,this,bl,bd));
                 InitStartState();
@@ -65,6 +73,7 @@ namespace PlayerLogic
 
         private void Update()
         {
+            SpeedProgressionVisualizer.UpdateValue(SpeedParameters.MovementSpeed);
             OnExecute();
         }
 
