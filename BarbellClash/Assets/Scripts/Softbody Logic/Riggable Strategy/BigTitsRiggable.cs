@@ -34,25 +34,24 @@ namespace Softbody
 
         public override void Die()
         {
-            StartCoroutine(WaitToSet(() =>
-            {
-                _idleRig.weight = 0f;
-                _dieRig.weight = 0f;
-            }));
             StartCoroutine(AnimateDie(false));
         }
 
         private IEnumerator AnimateDie(bool isInvert)
         {
-            float curTime = 0f;
-
             float needValue = isInvert ? 0f : 1f;
+            
+            yield return StartCoroutine(WaitToSet(() =>
+            {
+                _idleRig.weight = 0f;
+                _dieRig.weight = 0f;
+            }));
+            
             while (Mathf.Abs(_dieRig.weight - needValue) > Mathf.Epsilon)
             {
                 yield return new WaitForEndOfFrame();
 
                 _dieRig.weight = Mathf.MoveTowards(_dieRig.weight,needValue,_speed*Time.deltaTime);
-                curTime += Time.deltaTime;
             }
         }
     }
