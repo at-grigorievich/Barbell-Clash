@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Plate 2
+  m_Name: Plate 3
   m_Shader: {fileID: 4800000, guid: 39863a74ba34d9a47a33d8789651486d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -72,10 +72,10 @@ Material:
     - _RampThreshold: 0.5
     - _RampThresholdOtherLights: 0
     - _RimMax: 1.94
-    - _RimMin: 0.16
+    - _RimMin: 0.07
     - _Shadow_HSV_H: 0
     - _Shadow_HSV_S: 0.15
-    - _Shadow_HSV_V: 0.15
+    - _Shadow_HSV_V: 0
     - _Smoothness: 0.2
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -84,10 +84,10 @@ Material:
     - _ZWrite: 1
     - __dummy__: 0
     m_Colors:
-    - _Color: {r: 0.99215686, g: 0.7798389, b: 0.41568625, a: 1}
+    - _Color: {r: 0.65882355, g: 0.41568628, b: 0.99215686, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 0.785, g: 0.785, b: 0.785, a: 1}
     - _RimColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 0.6}
-    - _SColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    - _SColor: {r: 0.19499996, g: 0.19499996, b: 0.19499996, a: 1}
     - _SpecColor: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
   m_BuildTextureStacks: []
