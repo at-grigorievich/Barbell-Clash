@@ -30,6 +30,6 @@ MonoBehaviour:
     _position: {x: 0, y: 9, z: 6.07}
     _rotation: {x: 0, y: 0, z: 0}
   <CameraInitialConfig>k__BackingField:
-    <CamPosition>k__BackingField: {x: 7.25, y: 15, z: -9.5}
+    <CamPosition>k__BackingField: {x: 7.15, y: 15, z: -9.5}
     <CamRotation>k__BackingField: {x: 32.999996, y: 334.5, z: 0}
-    <Fov>k__BackingField: 93
+    <Fov>k__BackingField: 94
