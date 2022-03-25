@@ -89,8 +89,14 @@ public class SoftbodyBlock : EnvironmentBlock
             {
                 Softbody.DoDie();
                 ChangeBarbellIgnoreMovement(k,true);
-                
-                _boostService.RemoveBoostSpeed();
+
+                if (k is BarbellLogic bl)
+                {
+                    if (bl.HeightStatus == HeightStatus.Down)
+                    {
+                        _boostService.RemoveBoostSpeed();
+                    }
+                }
             }
             else
             {
@@ -109,6 +115,10 @@ public class SoftbodyBlock : EnvironmentBlock
                     && crushable.HeightStatus == HeightStatus.Down)
                 {
                     _boostService.AddBoostSpeed();
+                }
+                else if (crushable.HeightStatus == HeightStatus.Down)
+                {
+                    _boostService.RemoveBoostSpeed();
                 }
             }
         }

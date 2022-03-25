@@ -3,6 +3,7 @@ using ATG.LevelControl;
 using ATGStateMachine;
 using Barbell;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Zenject;
 
 namespace PlayerLogic
@@ -33,7 +34,7 @@ namespace PlayerLogic
 
 
         [Inject]
-        private void Constructor(ILevelSystem levelSystem, IInputable inputService,
+        private void Constructor(ILevelSystem levelSystem,ILevelStatus lvlStat, IInputable inputService,
             BarbellLogic.Factory barbelFactory,ICinemachinable camService)
         {
             InputService = inputService;
@@ -46,8 +47,8 @@ namespace PlayerLogic
                 CinemachineService.InitCinemachine(bl.transform,barbellLevelData.CameraInitialConfig);
                 
                 AllStates.Add(new PlayerBriefState(this,this));
-                AllStates.Add(new PlayerMoveState(this,this,bl));
-                
+                AllStates.Add(new PlayerMoveState(this,this,bl,lvlStat));
+                AllStates.Add(new PlayerDebriefState(this,this));
                 InitStartState();
                 OnState();
             }

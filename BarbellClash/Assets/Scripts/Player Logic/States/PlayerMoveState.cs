@@ -1,4 +1,5 @@
 ﻿using System;
+using ATG.LevelControl;
 using ATGStateMachine;
 using Barbell;
 using UnityEngine;
@@ -10,10 +11,12 @@ namespace PlayerLogic
         private readonly IKinematic _kinematic;
         
         public PlayerMoveState(IControllable mainObject, IStateSwitcher stateSwitcher, 
-            IKinematic kinematic) 
+            IKinematic kinematic, ILevelStatus lvlStatus) 
             : base(mainObject, stateSwitcher)
         {
             _kinematic = kinematic;
+            lvlStatus.OnDebriefStart += (sender, args) =>
+                StateSwitcher.StateSwitcher<PlayerDebriefState>();
         }
 
         public override void Enter()
