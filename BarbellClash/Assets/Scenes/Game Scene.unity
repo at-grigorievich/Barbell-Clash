@@ -838,15 +838,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03ac2c26477f4b8e969a49f1187b5aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cinemachineObject: {fileID: 0}
   <BoostData>k__BackingField:
-    _deltaBoostSpeed: 3
+    _deltaBoostSpeed: 4
+    <DebuffDelay>k__BackingField: 0.35
     <_minSpeed>k__BackingField: 13
     <_maxSpeed>k__BackingField: 29
   <SpeedParameters>k__BackingField:
     <MovementSpeed>k__BackingField: 13
     <DropSpeed>k__BackingField: 60
-  <SpeedProgressionVisualizer>k__BackingField: {fileID: 769269658}
 --- !u!20 &198260624
 Camera:
   m_ObjectHideFlags: 0
@@ -1691,67 +1690,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rect: {fileID: 1473493406}
+  _lerpSpeed: 5
   _image: {fileID: 769269656}
   _duration: 0.5
   _scaleMin: 1
   _scaleMax: 1.1
---- !u!1001 &837961084
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1503414589296656, guid: 505f0a9187a0d514ca9afdc34c51a984, type: 3}
-      propertyPath: m_Name
-      value: GlitterExplosionYellow
-      objectReference: {fileID: 0}
-    - target: {fileID: 4648984154963362, guid: 505f0a9187a0d514ca9afdc34c51a984, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4648984154963362, guid: 505f0a9187a0d514ca9afdc34c51a984, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4648984154963362, guid: 505f0a9187a0d514ca9afdc34c51a984, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4648984154963362, guid: 505f0a9187a0d514ca9afdc34c51a984, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4648984154963362, guid: 505f0a9187a0d514ca9afdc34c51a984, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4648984154963362, guid: 505f0a9187a0d514ca9afdc34c51a984, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4648984154963362, guid: 505f0a9187a0d514ca9afdc34c51a984, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4648984154963362, guid: 505f0a9187a0d514ca9afdc34c51a984, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4648984154963362, guid: 505f0a9187a0d514ca9afdc34c51a984, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4648984154963362, guid: 505f0a9187a0d514ca9afdc34c51a984, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4648984154963362, guid: 505f0a9187a0d514ca9afdc34c51a984, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 505f0a9187a0d514ca9afdc34c51a984, type: 3}
 --- !u!1 &849479552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2380,7 +2323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 2
-  m_FollowOffset: {x: 0, y: 0, z: -15}
+  m_FollowOffset: {x: 0, y: 0, z: -13}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -3615,7 +3558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5271bc5776a2422199ff8a70c968c650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 198260623}
+  _speedProgressionVisualizer: {fileID: 769269658}
 --- !u!1 &2145343386
 GameObject:
   m_ObjectHideFlags: 0
@@ -3696,8 +3639,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f6cb00633c4b609b3414a72bfa90c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LockPosition>k__BackingField: {x: 0, y: 0, z: 0}
-  <LockRotation>k__BackingField: {x: 0, y: 0, z: 0}
+  <LockPosition>k__BackingField: {x: 9.5, y: 18.9, z: 1.49}
+  <LockRotation>k__BackingField: {x: 40.4, y: 326.1, z: 0}
 --- !u!4 &8271954859626219802
 Transform:
   m_ObjectHideFlags: 0
