@@ -22,6 +22,8 @@ namespace UILogic
         private float _maxValue, _minValue;
         
         private Tween _tween;
+
+        public float CurrentPercentProgress => _image.fillAmount;
         
         private void Awake()
         {

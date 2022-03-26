@@ -1,5 +1,4 @@
 ﻿using System;
-using ATG.LevelControl;
 using ATGStateMachine;
 using Barbell;
 using Debrief;
@@ -15,18 +14,15 @@ namespace PlayerLogic
         
         private readonly IBonusDetector _bonusDetector;
         private readonly BarbellLogic _barbell;
-        private readonly ILevelStatus _lvlStatus;
-        
+
         private Action _moving;
         
         public PlayerDebriefState(IControllable mainObject, IStateSwitcher stateSwitcher,
-            BarbellLogic bl,IBonusDetector bd, ILevelStatus lvlStatus) 
+            BarbellLogic bl,IBonusDetector bd) 
             : base(mainObject, stateSwitcher)
         {
             _bonusDetector = bd;
             _barbell = bl;
-
-            _lvlStatus = lvlStatus;
         }
 
         public override void Enter()
@@ -55,7 +51,7 @@ namespace PlayerLogic
 
         private void OnGetBonus()
         {
-            _lvlStatus.CompleteLevel();
+            _bonusDetector.TargetPoint.ActivateBodybuilder(_barbell.transform);
         }
         
     }

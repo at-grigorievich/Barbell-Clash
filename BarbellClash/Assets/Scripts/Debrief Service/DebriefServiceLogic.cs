@@ -2,6 +2,7 @@
 using System.Linq;
 using ATG.LevelControl;
 using PlayerLogic;
+using UILogic;
 using UnityEngine;
 using Zenject;
 
@@ -9,8 +10,7 @@ namespace Debrief
 {
     public class DebriefServiceLogic : MonoBehaviour, IBonusDetector
     {
-        [SerializeField] private PlayerLogicService _player;
-        
+        [SerializeField] private SpeedProgressionVisualizer _speedProgressionVisualizer;
         [Inject] private ILevelStatus _levelStatus;
         [Inject] private ILevelSystem _levelSystem;
 
@@ -32,7 +32,7 @@ namespace Debrief
 
         private void OnDebriefStart(object sender, EventArgs e)
         {
-            float curSpeed = _player.ProgressValue;
+            float curSpeed = _speedProgressionVisualizer.CurrentPercentProgress;
 
             BonusBlock bb = _blocks.FirstOrDefault(b => b.NeedProgressValue > curSpeed);
             if (bb == null)

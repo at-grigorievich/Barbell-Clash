@@ -12,8 +12,6 @@ namespace PlayerLogic
     [Serializable]
     public class SpeedValues
     {
-        [SerializeField]
-        
         [field: SerializeField]
         public float MovementSpeed { get; set; }
         
@@ -55,7 +53,7 @@ namespace PlayerLogic
                 
                 AllStates.Add(new PlayerBriefState(this,this,lvlStat));
                 AllStates.Add(new PlayerMoveState(this,this,bl,lvlStat));
-                AllStates.Add(new PlayerDebriefState(this,this,bl,bd,lvlStat));
+                AllStates.Add(new PlayerDebriefState(this,this,bl,bd));
                 InitStartState();
                 OnState();
             }

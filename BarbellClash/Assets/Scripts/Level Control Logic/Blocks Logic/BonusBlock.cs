@@ -12,7 +12,7 @@ namespace ATG.LevelControl
         [SerializeField] private DebriefBodybuilder _bodybuilder;
         
         [field: SerializeField]
-        public int BoostIndex { get; private set; }
+        public float BoostScale { get; private set; }
         
         [field: Range(0f,1f)]
         [field: SerializeField]
@@ -46,11 +46,13 @@ namespace ATG.LevelControl
         }
 
         public void EnableBodybuilder()
-        { }
-
-        public void ActivateBodybuilder(GameObject gameObject)
         {
-            //_bodybuilder.StartSquat(BoostIndex,gameObject.transform);
+            _bodybuilder.gameObject.SetActive(true);
+        }
+
+        public void ActivateBodybuilder(Transform target)
+        {
+            _bodybuilder.StartSquat(BoostScale,target);
         }
     }
 }
