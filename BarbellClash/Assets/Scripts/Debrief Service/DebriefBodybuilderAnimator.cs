@@ -58,8 +58,12 @@ namespace Debrief
         }
         private void EndSquat(object sender, EventArgs e)
         {
-            animator.speed = 1.2f;
-            
+            _inputable.OnStartTouch -= OnStartTouch;
+            _inputable.OnEndTouch -= OnEndTouch;
+
+            animator.speed = 1f;
+            //animator.speed = 1.2f;
+
             _callEndSquatEvent = null;
             _afterGameUI.Hide();
         }

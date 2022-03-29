@@ -11,6 +11,7 @@ namespace Debrief
     public class MuscleContainer
     {
         [SerializeField] private Transform _muscleParent;
+        [SerializeField] private Transform[] _toDefaultScale;
         [Header("Scale Data")]
         [SerializeField] private float _muscleScaleDuration;
         [Header("Punch Data")]
@@ -18,14 +19,20 @@ namespace Debrief
 
         [SerializeField] private Vector3 _musclePunchPower;
 
-        public void BoostMuscle(float addScale)
+        public void BoostMuscle(float addScale, Action callback = null)
         {
             Vector3 curScale = _muscleParent.localScale;
             Vector3 nextScale = curScale + Vector3.one * addScale;
+            
+            foreach (var obj in _toDefaultScale)
+            {
+                obj.transform.localScale = Vector3.one;
+            }
 
             DOTween.Sequence()
                 .Append(_muscleParent.DOScale(nextScale, _muscleScaleDuration))
-                .Append(_muscleParent.DOPunchScale(_musclePunchPower, _musclePunchDuration,2,1f));
+                .Append(_muscleParent.DOPunchScale(_musclePunchPower, _musclePunchDuration, 2))
+                .OnComplete(() => callback?.Invoke());
         }
     }
     public class DebriefBodybuilder : MonoBehaviour
@@ -34,7 +41,7 @@ namespace Debrief
         [Space(15)]
         [SerializeField] private GameObject _cinemachineObject;
         [Space(15)] 
-        [SerializeField] private Transform[] _confettiTargets;
+        [SerializeField] private Transform _confettiTarget;
 
         [SerializeField] private MuscleContainer _muscleContainer;
         
@@ -68,31 +75,27 @@ namespace Debrief
         private void OnEndSquat(object sender, EventArgs e)
         {
             Destroy(_target.gameObject);
+
+            bool isWin = _endBoostScale > 0f;
+            InstantiateConfetti(true);
             
-            InstantiateConfetti();
-            
-            _muscleContainer.BoostMuscle(_endBoostScale);
+            _muscleContainer.BoostMuscle(_endBoostScale, _levelStatus.CompleteLevel);
             _animator.AnimateWin();
         }
+        
 
-
-        private void SquatToScaleAnimation(float boostScale)
+        private void InstantiateConfetti(bool isWin)
         {
-            DOTween.Sequence()
-                .Append(transform.DOScale(Vector3.one * 12, 1f))
-                .OnComplete(() =>
-                {
-                    //_levelStatus.CompleteLevel();
-                });
-        }
-
-        private void InstantiateConfetti()
-        {
-            foreach (var confettiTarget in _confettiTargets)
+            ParticleSystem ps = null;
+            
+            if (isWin)
             {
-                ParticleSystem ps = _vfx.PlayVFX(VFXType.Confetti, confettiTarget.position, confettiTarget.eulerAngles);
-                ps.Play();
+                ps = _vfx.PlayVFXLoop(VFXType.ConfettiShower,
+                    _confettiTarget.position,
+                    _confettiTarget.eulerAngles);
             }
+
+            ps.Play();
         }
     }
 }

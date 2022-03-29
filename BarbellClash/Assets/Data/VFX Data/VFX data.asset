@@ -23,3 +23,5 @@ MonoBehaviour:
     vfxPrefab: {fileID: 8935209738450244953, guid: 75934ce0c447413469c2bb6affdec3f7, type: 3}
   - vfxType: 5
     vfxPrefab: {fileID: 1744868690115765776, guid: ccdf98f25106c304080c13953700b65e, type: 3}
+  - vfxType: 10
+    vfxPrefab: {fileID: 8806944773261292879, guid: 289615b6ea4c9ab4b9077baa82be73ee, type: 3}

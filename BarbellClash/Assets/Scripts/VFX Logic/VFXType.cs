@@ -11,6 +11,7 @@
         Poof,
         Smoke,
         CompleteEmoji,
-        FailedEmoji
+        FailedEmoji,
+        ConfettiShower
     }
 }
