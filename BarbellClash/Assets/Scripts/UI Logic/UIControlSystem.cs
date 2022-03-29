@@ -12,21 +12,21 @@ namespace UILogic
 
         private void Start()
         {
-            ShowPanel<LobbyPanel>();
+            //ShowPanel<LobbyPanel>();
 
-            _levelSystem.OnLevelStart += (sender, args) =>  ShowPanel<GamePanel>();
+            //_levelSystem.OnLevelStart += (sender, args) =>  ShowPanel<GamePanel>();
             
-            _levelSystem.OnCompleteLevel += (sender, args) =>
+            /*_levelSystem.OnCompleteLevel += (sender, args) =>
             {
                 GetPanel<DebriefPanel>().DebriefType = DebriefType.CompleteDebrief;
                 ShowPanel<DebriefPanel>();
-            };
+            };*/
 
-            _levelSystem.OnFailedLevel += (sender, args) =>
+            /*_levelSystem.OnFailedLevel += (sender, args) =>
             {
                 GetPanel<DebriefPanel>().DebriefType = DebriefType.FailedDebrief;
                 ShowPanel<DebriefPanel>();
-            };
+            };*/
         }
 
         [ContextMenu("show panel")]

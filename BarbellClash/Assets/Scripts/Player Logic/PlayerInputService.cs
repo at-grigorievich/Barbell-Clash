@@ -10,6 +10,7 @@ namespace PlayerLogic
 
         public void Update()
         {
+            #if UNITY_ANDROID
             if (Input.touchCount > 0)
             {
                 TouchPhase phase = Input.GetTouch(0).phase;
@@ -25,6 +26,14 @@ namespace PlayerLogic
                         break;
                 }
             }
+            #endif
+            
+            #if UNITY_EDITOR
+            if(Input.GetMouseButtonUp(0))
+                OnEndTouch?.Invoke(this,EventArgs.Empty);
+            if(Input.GetMouseButtonDown(0))
+                OnStartTouch?.Invoke(this,EventArgs.Empty);
+            #endif
         }
     }
 }

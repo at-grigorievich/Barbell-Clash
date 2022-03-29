@@ -47,7 +47,7 @@ namespace ATG.LevelControl
 
         public void EnableBodybuilder()
         {
-            _bodybuilder.gameObject.SetActive(true);
+            //_bodybuilder.gameObject.SetActive(true);
         }
 
         public void ActivateBodybuilder(Transform target)

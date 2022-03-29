@@ -42,18 +42,10 @@ namespace Debrief
         private void SquatToScaleAnimation(float boostScale)
         {
             DOTween.Sequence()
-                .PrependInterval(_squatTime)
-                .Append(transform.DOScale(Vector3.one * boostScale, 1f))
+                .Append(transform.DOScale(Vector3.one * 12, 1f))
                 .OnComplete(() =>
                 {
-                    if (boostScale > 10f)
-                    {
-                        _levelStatus.CompleteLevel();
-                    }
-                    else
-                    {
-                        _levelStatus.FailedLevel();
-                    }
+                    _levelStatus.CompleteLevel();
                 });
         }
 

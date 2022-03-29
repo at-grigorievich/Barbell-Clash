@@ -27,12 +27,13 @@ namespace PlayerLogic
 
         public override void Enter()
         {
-            _barbell.StopRotatePlates();
-            _moving = Moving;
+            //MainObject.CinemachineService.Off();
+            //_barbell.StopRotatePlates();
+            //_moving = Moving;
         }
         public override void Execute()
         {
-            _moving?.Invoke();
+            //_moving?.Invoke();
         }
 
         private void Moving()

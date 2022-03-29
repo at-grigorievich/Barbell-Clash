@@ -839,12 +839,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <BoostData>k__BackingField:
-    _deltaBoostSpeed: 4
+    _deltaBoostSpeed: 1
     <DebuffDelay>k__BackingField: 0.35
     <_minSpeed>k__BackingField: 13
-    <_maxSpeed>k__BackingField: 29
+    <_maxSpeed>k__BackingField: 25
   <SpeedParameters>k__BackingField:
-    <MovementSpeed>k__BackingField: 13
+    <MovementSpeed>k__BackingField: 20
     <DropSpeed>k__BackingField: 60
 --- !u!20 &198260624
 Camera:
