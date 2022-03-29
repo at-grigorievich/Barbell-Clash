@@ -14,5 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
   - actionType: 7
+    stateType: 0
+    stateName: IsSquat
+  - actionType: 0
+    stateType: 0
+    stateName: IsIdle
+  - actionType: 8
     stateType: 1
-    stateName: Squat
+    stateName: Win

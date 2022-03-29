@@ -1,4 +1,5 @@
-﻿using ATG.LevelControl;
+﻿using System;
+using ATG.LevelControl;
 using DG.Tweening;
 using UnityEngine;
 using VFXLogic;
@@ -21,18 +22,32 @@ namespace Debrief
         [field: SerializeField] public Transform HandTransform { get; private set; }
         [field: SerializeField] public Vector3 HandPosition { get; private set; }
         [field: SerializeField] public Vector3 HandRotation { get; private set; }
-        
+
+        private GameObject _target;
         
         public void EnableCinemachine() => _cinemachineObject.SetActive(true);
         
         public void StartSquat(float boostScale, Transform target)
         {
+            _animator.OnEndSquat += OnEndSquat;
+            
             target.SetParent(HandTransform);
             target.transform.localPosition = HandPosition;
             target.transform.localRotation = Quaternion.Euler(HandRotation);
+
+            _target = target.gameObject;
             
             _animator.StartSquat();
         }
+
+        private void OnEndSquat(object sender, EventArgs e)
+        {
+            Destroy(_target.gameObject);
+            
+            InstantiateConfetti();
+            _animator.AnimateWin();
+        }
+
 
         private void SquatToScaleAnimation(float boostScale)
         {

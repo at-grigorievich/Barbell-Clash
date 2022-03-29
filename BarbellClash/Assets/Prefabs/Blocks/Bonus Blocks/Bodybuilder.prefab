@@ -102,8 +102,8 @@ MonoBehaviour:
   _animator: {fileID: 2338030756548570856}
   _cinemachineObject: {fileID: 8271735039349628625}
   _confettiTargets:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5123010040957133907}
+  - {fileID: 7326775873109041836}
   <HandTransform>k__BackingField: {fileID: 4588924998689651356}
   <HandPosition>k__BackingField: {x: -0.10200085, y: 0.013999939, z: -0.041999117}
   <HandRotation>k__BackingField: {x: 29.0647, y: 320.8951, z: 173.84007}

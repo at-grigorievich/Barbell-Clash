@@ -9,6 +9,8 @@
         Fight,
         Death,
         Crush,
-        Squat
+        Squat,
+        Win,
+        Lose
     }
 }
