@@ -2460,7 +2460,7 @@ MonoBehaviour:
     enabled: 0
   shapeMatchingConstraintParameters:
     evaluationOrder: 1
-    iterations: 25
+    iterations: 2
     SORFactor: 2
     enabled: 1
   tetherConstraintParameters:
