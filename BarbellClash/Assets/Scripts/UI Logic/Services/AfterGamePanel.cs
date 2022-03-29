@@ -14,6 +14,7 @@ namespace UILogic
         public void SetupToAfterGamePanel()
         {
             _rect.transform.SetParent(_parent);
+            _rect.localScale = Vector3.one;
         }
     }
     

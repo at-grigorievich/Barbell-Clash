@@ -92,6 +92,7 @@ namespace UILogic
 
             _nextValue = resFill;
             
+            _tween.Kill();
             _fillTween = DOTween.Sequence();
             _fillTween
                 .Append(_image.DOFillAmount(resFill, 0.15f))
