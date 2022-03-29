@@ -11,6 +11,8 @@ namespace UILogic
         [Inject] private PlayerData _levelSystem;
 
         [SerializeField] private TextMeshProUGUI _lvlData;
+
+        [SerializeField] private GameObject _tutorialPanel;
         
         public override void Show()
         {
@@ -30,6 +32,11 @@ namespace UILogic
                 panelElement.ElementDisable();
             }
             base.Hide();
+        }
+
+        public void ShowTutorial(bool active)
+        {
+            _tutorialPanel.SetActive(active);
         }
     }
 }

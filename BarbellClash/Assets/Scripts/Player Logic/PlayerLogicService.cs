@@ -83,13 +83,11 @@ namespace PlayerLogic
             ProgressValue += delta;
         }
 
-        public void RemoveBoostSpeed(float removeValue)
+        public void RemoveBoostSpeed(float value)
         {
-            if (ProgressValue - removeValue >= 0f)
-            {
-                ProgressValue -= removeValue;
-            }
+            SpeedParameters.MovementSpeed = value;
         }
+        
         public void RemoveBoostSpeed()
         {
             Taptic.Vibrate();
