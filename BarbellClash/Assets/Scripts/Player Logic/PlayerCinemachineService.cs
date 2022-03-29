@@ -31,7 +31,7 @@ namespace PlayerLogic
             float curHeight = (float) _mainCamera.pixelHeight;
 
             float camFOV = nextFOV*(_refWidth/_refHeight) / (curWidth / curHeight);
-            Debug.Log((_refWidth/_refHeight) / (curWidth / curHeight));
+
             _virtualCamera.m_Lens.FieldOfView = camFOV;
         }
 
