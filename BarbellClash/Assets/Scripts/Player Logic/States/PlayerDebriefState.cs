@@ -10,7 +10,7 @@ namespace PlayerLogic
     public class PlayerDebriefState: BaseStatement<IControllable>
     {
         public const float JumpPower = 10f;
-        public const float JumpDuration = 3f;
+        public const float JumpDuration = 4f;
 
         public const float MinDistance = 35f;
         
@@ -45,10 +45,14 @@ namespace PlayerLogic
             {
                 _target = _bonusDetector.TargetPoint.transform.position;
                 _target.y = JumpPower/2f;
+
+                float duration = _bonusDetector.FinishBlockIndex > 4 
+                    ? JumpDuration 
+                    : JumpDuration / 3f;
                 
                 _moving = CheckDistance;
                 _barbell.transform
-                    .DOJump(_target, JumpPower, 1,JumpDuration)
+                    .DOJump(_target, JumpPower, 1,duration).SetEase(Ease.Linear)
                     .OnComplete(OnGetBonus);
             }
         }

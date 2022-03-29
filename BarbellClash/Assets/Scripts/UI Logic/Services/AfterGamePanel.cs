@@ -5,11 +5,25 @@ using UnityEngine.UI;
 
 namespace UILogic
 {
+    [Serializable]
+    public class StrongIdentificatorContainer
+    {
+        [SerializeField] private RectTransform _rect;
+        [SerializeField] private Transform _parent;
+
+        public void SetupToAfterGamePanel()
+        {
+            _rect.transform.SetParent(_parent);
+        }
+    }
+    
     public class AfterGamePanel : UIPanel
     {
         [SerializeField] private Slider _slider;
         [SerializeField] private float _sliderDuration;
-
+        [Space(15)] 
+        [SerializeField] private StrongIdentificatorContainer _container;
+        
         private Tween _sliderTween;
 
         private void Start()
@@ -19,6 +33,7 @@ namespace UILogic
 
         public override void Show()
         {
+            _container.SetupToAfterGamePanel();
             foreach (var panelElement in elements)
             {
                 panelElement.ElementEnable();

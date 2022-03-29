@@ -78,6 +78,14 @@ namespace PlayerLogic
             
             ProgressValue = SpeedParameters.MovementSpeed;
         }
+
+        public void RemoveBoostSpeed(float removeValue)
+        {
+            if (ProgressValue - removeValue >= 0f)
+            {
+                ProgressValue -= removeValue;
+            }
+        }
         public void RemoveBoostSpeed()
         {
             float curSpeed = SpeedParameters.MovementSpeed;

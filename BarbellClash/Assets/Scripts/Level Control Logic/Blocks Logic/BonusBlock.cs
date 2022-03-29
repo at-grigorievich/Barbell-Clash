@@ -1,6 +1,7 @@
 ﻿using System;
 using Barbell;
 using Debrief;
+using UILogic;
 using UnityEngine;
 
 namespace ATG.LevelControl
@@ -9,7 +10,9 @@ namespace ATG.LevelControl
     {
         [SerializeField] private Vector3 _addScale;
         [SerializeField] private DebriefBodybuilder _bodybuilder;
-        
+
+        private SpeedProgressionVisualizer _playerLogic;
+
         [field: SerializeField]
         public float BoostScale { get; private set; }
         
@@ -23,11 +26,15 @@ namespace ATG.LevelControl
         
         private void Start()
         {
+            _playerLogic = FindObjectOfType<SpeedProgressionVisualizer>();
+            
             _bodybuilder.gameObject.SetActive(false);
             _addScaleCallback = (bl) =>
             {
                 _addScaleCallback = null;
+                
                 bl.AddScale(_addScale);
+                _playerLogic.RemoveFillPercent();
             };
         }
 

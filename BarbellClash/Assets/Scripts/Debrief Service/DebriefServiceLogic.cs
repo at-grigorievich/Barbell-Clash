@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using ATG.LevelControl;
+using ModestTree;
 using PlayerLogic;
 using UILogic;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace Debrief
         [Inject] private ILevelStatus _levelStatus;
         [Inject] private ILevelSystem _levelSystem;
 
+        public int FinishBlockIndex { get; private set; }
         public BonusBlock TargetPoint { get; private set; } = null;
 
         private BonusBlock[] _blocks;
@@ -39,6 +41,7 @@ namespace Debrief
                 bb = _blocks.Last();
             }
 
+            FinishBlockIndex = _blocks.IndexOf(bb);
             TargetPoint = bb;
             TargetPoint.EnableBodybuilder();
         }
