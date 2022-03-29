@@ -25,9 +25,8 @@ namespace Debrief
             _blocks = Array.FindAll(_levelSystem.BlockInstances, b => b is BonusBlock)
                 .Cast<BonusBlock>()
                 .ToArray();
-            Array.Sort(_blocks, 
-                (f, s) 
-                    => f.NeedProgressValue > s.NeedProgressValue ? 1 : -1);
+            Array.Sort(_blocks, (f, s) => 
+                f.NeedProgressValue > s.NeedProgressValue ? 1 : -1);
         }
 
         private void OnDebriefStart(object sender, EventArgs e)
