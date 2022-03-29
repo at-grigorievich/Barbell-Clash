@@ -7,6 +7,6 @@ namespace PlayerLogic
         void InitCinemachine(Transform target, CameraConfigContainer cameraConfig);
         void SetFOV(float nextFOV);
 
-        void Off();
+        void UpdateTarget();
     }
 }

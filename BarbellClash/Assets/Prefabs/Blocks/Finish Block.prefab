@@ -509,6 +509,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bodybuilder
       objectReference: {fileID: 0}
+    - target: {fileID: 128760362286887246, guid: 05d4bfee77ce5df4fb415c5b84b89cdf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7866140078817937568, guid: 05d4bfee77ce5df4fb415c5b84b89cdf, type: 3}
       propertyPath: m_RootOrder
       value: 5

@@ -36,8 +36,8 @@ AnimatorController:
   m_Name: Bodybuidler Animator
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: IsSquart
-    m_Type: 4
+  - m_Name: Squat
+    m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -75,7 +75,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 880c844541151484fbf3f279a3caf57c, type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: 19a1fb48528aa68499bca9609b7b0662, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -115,7 +115,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: IsSquart
+    m_ConditionEvent: Squat
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 218706091927844964}

@@ -20,12 +20,10 @@ namespace ATG.LevelControl
 
         private Action<BarbellLogic> _addScaleCallback;
 
-        private PlayerLogicService _player;
+        public DebriefBodybuilder Bodybuilder => _bodybuilder;
         
         private void Start()
         {
-            _player = FindObjectOfType<PlayerLogicService>();
-            
             _bodybuilder.gameObject.SetActive(false);
             _addScaleCallback = (bl) =>
             {
@@ -47,7 +45,7 @@ namespace ATG.LevelControl
 
         public void EnableBodybuilder()
         {
-            //_bodybuilder.gameObject.SetActive(true);
+            _bodybuilder.gameObject.SetActive(true);
         }
 
         public void ActivateBodybuilder(Transform target)

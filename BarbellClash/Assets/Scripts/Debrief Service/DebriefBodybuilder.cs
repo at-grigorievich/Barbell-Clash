@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using ATG.LevelControl;
+﻿using ATG.LevelControl;
 using DG.Tweening;
 using UnityEngine;
 using VFXLogic;
@@ -12,10 +10,10 @@ namespace Debrief
     {
         [Inject] private ILevelStatus _levelStatus;
         [Inject] private IVFXControllable _vfx;
-        
-        [SerializeField] private Animator _animator;
+
+        [SerializeField] private DebriefBodybuilderAnimator _animator;
+        [Space(15)]
         [SerializeField] private GameObject _cinemachineObject;
-        [SerializeField] private float _squatTime;
         [Space(15)] 
         [SerializeField] private Transform[] _confettiTargets;
          
@@ -24,19 +22,16 @@ namespace Debrief
         [field: SerializeField] public Vector3 HandPosition { get; private set; }
         [field: SerializeField] public Vector3 HandRotation { get; private set; }
         
+        
+        public void EnableCinemachine() => _cinemachineObject.SetActive(true);
+        
         public void StartSquat(float boostScale, Transform target)
         {
-            _animator.SetBool("IsSquart",true);
-            
             target.SetParent(HandTransform);
             target.transform.localPosition = HandPosition;
             target.transform.localRotation = Quaternion.Euler(HandRotation);
             
-            _cinemachineObject.SetActive(true);
-            
-            
-            InstantiateConfetti();
-            SquatToScaleAnimation(boostScale);
+            _animator.StartSquat();
         }
 
         private void SquatToScaleAnimation(float boostScale)
@@ -45,7 +40,7 @@ namespace Debrief
                 .Append(transform.DOScale(Vector3.one * 12, 1f))
                 .OnComplete(() =>
                 {
-                    _levelStatus.CompleteLevel();
+                    //_levelStatus.CompleteLevel();
                 });
         }
 

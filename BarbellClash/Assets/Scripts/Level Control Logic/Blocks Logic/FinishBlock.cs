@@ -8,6 +8,9 @@ using Zenject;
 
 namespace ATG.LevelControl
 {
+    /// <summary>
+    /// Uncomment if need record creatives
+    /// </summary>
     public class FinishBlock: EnvironmentBlock
     {
         [Inject] private ILevelStatus _levelStatus;
@@ -19,7 +22,7 @@ namespace ATG.LevelControl
 
         private void Start()
         {
-            _bodybuilder.gameObject.SetActive(true);
+            //_bodybuilder.gameObject.SetActive(true);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -28,14 +31,14 @@ namespace ATG.LevelControl
             {
                 if (other.attachedRigidbody.TryGetComponent(out IKinematic k))
                 {
-                    var a = FindObjectOfType<CinemachineVirtualCamera>();
-                    Destroy(a.gameObject);
-                    
-                   _levelStatus.StartDebrief();
+                   //  var a = FindObjectOfType<CinemachineVirtualCamera>();
+                   //  Destroy(a.gameObject);
+                   //  
+                   // if(k is BarbellLogic bl)
+                   //     Destroy(bl);
+                   //  _bodybuilder.StartSquat(2f,other.attachedRigidbody.transform);
 
-                   if(k is BarbellLogic bl)
-                       Destroy(bl);
-                    _bodybuilder.StartSquat(2f,other.attachedRigidbody.transform);
+                    _levelStatus.StartDebrief();
 
                     foreach (var confettiTarget in _confettiTargets)
                     {

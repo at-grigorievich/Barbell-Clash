@@ -8,6 +8,7 @@
         Fall,
         Fight,
         Death,
-        Crush
+        Crush,
+        Squat
     }
 }

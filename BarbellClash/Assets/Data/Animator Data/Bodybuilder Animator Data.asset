@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d90596d6c7de4700a44ecc4136d3b81e, type: 3}
-  m_Name: Levels List
+  m_Script: {fileID: 11500000, guid: 03e0f1defe0444f999405f0f6745d6f2, type: 3}
+  m_Name: Bodybuilder Animator Data
   m_EditorClassIdentifier: 
-  levels:
-  - {fileID: 11400000, guid: 8e493c5bab624024facef275cdf1d1c0, type: 2}
+  states:
+  - actionType: 7
+    stateType: 1
+    stateName: Squat

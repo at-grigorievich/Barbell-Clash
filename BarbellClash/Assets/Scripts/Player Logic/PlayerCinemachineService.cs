@@ -34,9 +34,15 @@ namespace PlayerLogic
             _virtualCamera.m_Lens.FieldOfView = camFOV;
         }
 
+        public void UpdateTarget()
+        {
+            _cameraLocker.enabled = false;
+            _virtualCamera.Follow = null;
+        }
+
         public void Off()
         {
-            _virtualCamera.transform.gameObject.SetActive(false);
+            _cameraLocker.enabled = false;
         }
     }
 }

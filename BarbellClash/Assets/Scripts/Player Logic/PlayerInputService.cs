@@ -28,12 +28,12 @@ namespace PlayerLogic
             }
             #endif
             
-            #if UNITY_EDITOR
+            /*#if UNITY_EDITOR
             if(Input.GetMouseButtonUp(0))
                 OnEndTouch?.Invoke(this,EventArgs.Empty);
             if(Input.GetMouseButtonDown(0))
                 OnStartTouch?.Invoke(this,EventArgs.Empty);
-            #endif
+            #endif*/
         }
     }
 }
