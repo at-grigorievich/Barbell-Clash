@@ -73,10 +73,12 @@ namespace PlayerLogic
 
         public void AddBoostSpeed()
         {
+            float newSpeed = BoostData.BoostCurrentSpeed(SpeedParameters.MovementSpeed);
+            float delta = newSpeed - SpeedParameters.MovementSpeed;
             SpeedParameters.MovementSpeed
-                = BoostData.BoostCurrentSpeed(SpeedParameters.MovementSpeed);
+                = newSpeed;
             
-            ProgressValue = SpeedParameters.MovementSpeed;
+            ProgressValue += delta;
         }
 
         public void RemoveBoostSpeed(float removeValue)
@@ -90,7 +92,7 @@ namespace PlayerLogic
         {
             float curSpeed = SpeedParameters.MovementSpeed;
             
-            ProgressValue = 0f;
+            ProgressValue = BoostData._minSpeed;
             
             SpeedParameters.MovementSpeed = 
                 BoostData.DebuffCurrentSpeed();
