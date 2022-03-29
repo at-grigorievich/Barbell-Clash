@@ -58,6 +58,8 @@ namespace Debrief
         }
         private void EndSquat(object sender, EventArgs e)
         {
+            animator.speed = 1.2f;
+            
             _callEndSquatEvent = null;
             _afterGameUI.Hide();
         }

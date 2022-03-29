@@ -104,6 +104,11 @@ MonoBehaviour:
   _confettiTargets:
   - {fileID: 5123010040957133907}
   - {fileID: 7326775873109041836}
+  _muscleContainer:
+    _muscleParent: {fileID: 41738248669683008}
+    _muscleScaleDuration: 0.45
+    _musclePunchDuration: 0.55
+    _musclePunchPower: {x: 0.15, y: 0.15, z: 0.15}
   <HandTransform>k__BackingField: {fileID: 4588924998689651356}
   <HandPosition>k__BackingField: {x: -0.10200085, y: 0.013999939, z: -0.041999117}
   <HandRotation>k__BackingField: {x: 29.0647, y: 320.8951, z: 173.84007}
