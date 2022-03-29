@@ -31,6 +31,8 @@ namespace PlayerLogic
 
         public override void Enter()
         {
+            Taptic.Vibrate();
+            
             _barbell.StopRotatePlates();
             _moving = Moving;
         }

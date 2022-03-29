@@ -73,6 +73,8 @@ namespace PlayerLogic
 
         public void AddBoostSpeed()
         {
+            Taptic.Vibrate();
+            
             float newSpeed = BoostData.BoostCurrentSpeed(SpeedParameters.MovementSpeed);
             float delta = newSpeed - SpeedParameters.MovementSpeed;
             SpeedParameters.MovementSpeed
@@ -90,6 +92,7 @@ namespace PlayerLogic
         }
         public void RemoveBoostSpeed()
         {
+            Taptic.Vibrate();
             float curSpeed = SpeedParameters.MovementSpeed;
             
             ProgressValue = BoostData._minSpeed;
