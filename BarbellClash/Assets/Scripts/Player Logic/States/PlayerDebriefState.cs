@@ -9,8 +9,8 @@ namespace PlayerLogic
 {
     public class PlayerDebriefState: BaseStatement<IControllable>
     {
-        public const float JumpPower = 15f;
-        public const float JumpDuration = 1.5f;
+        public const float JumpPower = 10f;
+        public const float JumpDuration = 3f;
 
         public const float MinDistance = 35f;
         
@@ -32,9 +32,6 @@ namespace PlayerLogic
         public override void Enter()
         {
             _barbell.StopRotatePlates();
-            
-            
-            
             _moving = Moving;
         }
         public override void Execute()
