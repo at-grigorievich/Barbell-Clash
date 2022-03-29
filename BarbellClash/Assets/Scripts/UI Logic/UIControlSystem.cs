@@ -22,6 +22,7 @@ namespace UILogic
                 ShowPanel<DebriefPanel>();
             };
 
+            _levelSystem.OnDebriefStart += (sender, args) => ShowPanel<AfterGamePanel>();
             _levelSystem.OnFailedLevel += (sender, args) =>
             {
                 GetPanel<DebriefPanel>().DebriefType = DebriefType.FailedDebrief;
@@ -60,6 +61,14 @@ namespace UILogic
                 {
                     panel.Hide();
                 }
+            }
+        }
+
+        public void HideAll()
+        {
+            foreach (var panel in _panels)
+            {
+                panel.Hide();
             }
         }
     }
