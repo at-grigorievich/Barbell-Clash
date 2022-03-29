@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 2952014750779589667}
   - component: {fileID: 7737078158765983142}
   m_Layer: 6
-  m_Name: Obstacle Block
+  m_Name: Obstacle Block Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
