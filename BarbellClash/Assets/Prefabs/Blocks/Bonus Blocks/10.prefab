@@ -390,9 +390,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: {x: 0, y: 0, z: 30}
-  _addScale: {x: 0, y: 0.25, z: 0.25}
+  _addScale: {x: 0, y: 0.3, z: 0.3}
   _bodybuilder: {fileID: 2922326312419504096}
-  <BoostScale>k__BackingField: 15
+  <BoostScale>k__BackingField: 0.8
   <NeedProgressValue>k__BackingField: 1
 --- !u!1001 &3414657202989611946
 PrefabInstance:

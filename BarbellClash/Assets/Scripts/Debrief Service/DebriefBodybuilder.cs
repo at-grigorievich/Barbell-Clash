@@ -47,7 +47,8 @@ namespace Debrief
         
         [Inject] private ILevelStatus _levelStatus;
         [Inject] private IVFXControllable _vfx;
-
+        [Inject] private IBonusDetector _bonusDetector;
+        
         [field: Space(20)]        
         [field: SerializeField] public Transform HandTransform { get; private set; }
         [field: SerializeField] public Vector3 HandPosition { get; private set; }
@@ -61,15 +62,25 @@ namespace Debrief
         public void StartSquat(float boostScale, Transform target)
         {
             _animator.OnEndSquat += OnEndSquat;
-            
-            target.SetParent(HandTransform);
-            target.transform.localPosition = HandPosition;
-            target.transform.localRotation = Quaternion.Euler(HandRotation);
 
-            _target = target.gameObject;
-            _endBoostScale = boostScale;
-            
-            _animator.StartSquat();
+            if (_bonusDetector.FinishBlockIndex > 0)
+            {
+                target.SetParent(HandTransform);
+                target.transform.localPosition = HandPosition;
+                target.transform.localRotation = Quaternion.Euler(HandRotation);
+
+                _target = target.gameObject;
+                _endBoostScale = boostScale;
+
+                _animator.StartSquat();
+            }
+            else
+            {
+                InstantiateConfetti(true);
+                _animator.AnimateWin();
+                
+                _levelStatus.CompleteLevel();
+            }
         }
 
         private void OnEndSquat(object sender, EventArgs e)
