@@ -56,6 +56,9 @@ namespace Softbody
             if(_kinematic != null || other.attachedRigidbody == null)
                 return;
             
+            if(other.TryGetComponent(out IgnoreTriggers it))
+                return;
+            
             if (other.attachedRigidbody.TryGetComponent(out ICrushable crush))
             {
                 _kinematic = crush;
