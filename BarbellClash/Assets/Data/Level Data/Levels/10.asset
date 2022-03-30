@@ -47,7 +47,7 @@ MonoBehaviour:
   - {fileID: 4321737166604718202, guid: 25af26eed2fc0894782f421cb6dd0c5b, type: 3}
   - {fileID: 4321737166604718202, guid: 3522ce52f02b45548be28b8a91761138, type: 3}
   - {fileID: 4321737166604718202, guid: 0a1c146099672cc49b0d5b453580806b, type: 3}
-  - {fileID: 4321737166604718202, guid: 0a1c146099672cc49b0d5b453580806b, type: 3}
+  - {fileID: 4321737166604718202, guid: 2f825dc3b71407f4883f6e1cdb604c01, type: 3}
   - {fileID: 4321737166604718202, guid: 0a1c146099672cc49b0d5b453580806b, type: 3}
   - {fileID: 6768989904039971223, guid: b3403af408816ce489a10b905a80e570, type: 3}
   - {fileID: 5908639423168397451, guid: f621f78e553bc12488e79b44cc2c6ba7, type: 3}
@@ -62,7 +62,7 @@ MonoBehaviour:
   - {fileID: 5978914188097387927, guid: 4f2a21644a7277144aa0416bb89415e4, type: 3}
   - {fileID: 5978914188097387927, guid: ddc9e7ae1e85663429723450291bf976, type: 3}
   <BarbellInitialConfig>k__BackingField:
-    _barbellPrefab: {fileID: 9221488013398396889, guid: 63d10146db9b73e468da677faea02e52, type: 3}
+    _barbellPrefab: {fileID: 9221488013398396889, guid: c7594c90b9c2d1b4488e4b85a93bd41f, type: 3}
     _position: {x: 0, y: 9, z: 6.07}
     _rotation: {x: 0, y: 0, z: 0}
   <CameraInitialConfig>k__BackingField:

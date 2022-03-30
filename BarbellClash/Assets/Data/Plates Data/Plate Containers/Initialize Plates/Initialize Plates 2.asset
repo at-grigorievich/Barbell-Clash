@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ef02718996c445bbacb05315ff574b0, type: 3}
-  m_Name: Initialize Plates
+  m_Name: Initialize Plates 2
   m_EditorClassIdentifier: 
   <Plates>k__BackingField:
   - {fileID: -1428891759289656043, guid: a0244fb8105d46d45822ade11dbbf50a, type: 3}

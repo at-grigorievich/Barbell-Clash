@@ -1077,12 +1077,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <BoostData>k__BackingField:
-    _deltaBoostSpeed: 2.5
+    _deltaBoostSpeed: 1.5
     <DebuffDelay>k__BackingField: 0.45
-    <_minSpeed>k__BackingField: 15
-    <_maxSpeed>k__BackingField: 25
+    <_minSpeed>k__BackingField: 17
+    <_maxSpeed>k__BackingField: 27
   <SpeedParameters>k__BackingField:
-    <MovementSpeed>k__BackingField: 15
+    <MovementSpeed>k__BackingField: 17
     <DropSpeed>k__BackingField: 60
 --- !u!20 &198260624
 Camera:
@@ -1134,8 +1134,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198260622}
-  m_LocalRotation: {x: -0.33029827, y: 0.27360547, z: -0.10066721, w: -0.89772445}
-  m_LocalPosition: {x: 9.5, y: 18.9, z: -18.79}
+  m_LocalRotation: {x: 0.16266018, y: -0.07067109, z: 0.011678827, w: 0.9840787}
+  m_LocalPosition: {x: 2.34, y: 7.72, z: -18.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3763,7 +3763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -185}
+  m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: 0, y: 500}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1473277341
@@ -3801,7 +3801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVectors:
-  - {x: 0, y: -185, z: 0}
+  - {x: 0, y: -100, z: 0}
   - {x: 0, y: 600, z: 0}
   duration: 0.5
 --- !u!1 &1473493405

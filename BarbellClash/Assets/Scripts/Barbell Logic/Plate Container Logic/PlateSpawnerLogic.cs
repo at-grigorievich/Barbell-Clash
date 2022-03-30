@@ -88,6 +88,7 @@ namespace Barbell
 
             AnimateDestroying();
             
+            Taptic.Vibrate();
         }
         private void DestroyPlatesInstances()
         {

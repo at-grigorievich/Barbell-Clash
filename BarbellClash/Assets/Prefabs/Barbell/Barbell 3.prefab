@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d403e62e5a5b4d68bdc137626402b973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultPlates: {fileID: 11400000, guid: a01fdadfee9b32d4cb678feff4df5376, type: 2}
+  _defaultPlates: {fileID: 11400000, guid: 61f0edc8e1a05ed419733078e05db058, type: 2}
   _direction: {x: 1, y: 0, z: 0}
   _minTarget: {fileID: 3126520541360764367}
   _maxTarget: {fileID: 2088150547584368489}
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d403e62e5a5b4d68bdc137626402b973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultPlates: {fileID: 11400000, guid: a01fdadfee9b32d4cb678feff4df5376, type: 2}
+  _defaultPlates: {fileID: 11400000, guid: 61f0edc8e1a05ed419733078e05db058, type: 2}
   _direction: {x: -1, y: 0, z: 0}
   _minTarget: {fileID: 1697675897491102164}
   _maxTarget: {fileID: 5035091570540931217}
@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 2754077372391783131}
   - component: {fileID: 7976368765021218377}
   m_Layer: 2
-  m_Name: Barbell 1
+  m_Name: Barbell 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

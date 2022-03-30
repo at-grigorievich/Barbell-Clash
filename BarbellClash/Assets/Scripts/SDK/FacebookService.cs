@@ -5,7 +5,7 @@ namespace ATG.SDK
 {
     public class FacebookService : MonoBehaviour
     {
-        void Awake ()
+        void Start()
         {
             if (!FB.IsInitialized) {
                 // Initialize the Facebook SDK
