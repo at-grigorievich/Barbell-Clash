@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ATG.SDK;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
 
@@ -12,6 +13,8 @@ namespace ATG.LevelControl
         [Inject] private PlayerData.PlayerData _playerData;
         [Inject] private ILevelStatus _levelStatus;
 
+        [Inject] private GameAnalyticService _gameAnalytic;
+        
         [Inject] private EnvironmentBlock.Factory _blockFactory;
         
         public int CurrentLevelId => PlayerPrefs.HasKey(LevelInfoRef) ? PlayerPrefs.GetInt(LevelInfoRef) : 1;
@@ -23,8 +26,13 @@ namespace ATG.LevelControl
         [Inject]
         public virtual void Initialize()
         {
+            _levelStatus.OnLevelStart += (sender, args) =>
+                _gameAnalytic.OnLevelStartEvent(_playerData.CurrentLevel);
+
             _levelStatus.OnCompleteLevel += (sender, args) =>
             {
+                _gameAnalytic.OnLevelCompleteEvent(_playerData.CurrentLevel);
+                
                 SaveLevel(CurrentLevelId + 1);
                 _playerData.UpdateLevel();
             };
