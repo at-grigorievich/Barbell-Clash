@@ -80,11 +80,12 @@ namespace PlayerLogic
             SpeedParameters.MovementSpeed
                 = newSpeed;
             
-            ProgressValue += delta;
+            ProgressValue += BoostData.Delta;
         }
 
         public void RemoveBoostSpeed(float value)
         {
+            Taptic.Vibrate();
             SpeedParameters.MovementSpeed = value;
         }
         

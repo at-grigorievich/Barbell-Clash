@@ -837,8 +837,8 @@ MonoBehaviour:
   statesData: {fileID: 11400000, guid: 8801e33c957266444aa393a4eedbe048, type: 2}
   _minAnimatorSpeed: 0.4
   _maxAnimatorSpeed: 1.5
-  _deltaAddSpeed: 15
-  _deltaRemoveSpeed: 0.05
+  _deltaAddSpeed: 4
+  _deltaRemoveSpeed: 0.1
 --- !u!1 &4780924918991955820
 GameObject:
   m_ObjectHideFlags: 0

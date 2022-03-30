@@ -1079,10 +1079,10 @@ MonoBehaviour:
   <BoostData>k__BackingField:
     _deltaBoostSpeed: 3
     <DebuffDelay>k__BackingField: 0.45
-    <_minSpeed>k__BackingField: 17
+    <_minSpeed>k__BackingField: 15
     <_maxSpeed>k__BackingField: 29
   <SpeedParameters>k__BackingField:
-    <MovementSpeed>k__BackingField: 17
+    <MovementSpeed>k__BackingField: 15
     <DropSpeed>k__BackingField: 60
 --- !u!20 &198260624
 Camera:
