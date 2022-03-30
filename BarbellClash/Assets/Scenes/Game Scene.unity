@@ -1077,10 +1077,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <BoostData>k__BackingField:
-    _deltaBoostSpeed: 3
+    _deltaBoostSpeed: 2.5
     <DebuffDelay>k__BackingField: 0.45
     <_minSpeed>k__BackingField: 15
-    <_maxSpeed>k__BackingField: 29
+    <_maxSpeed>k__BackingField: 25
   <SpeedParameters>k__BackingField:
     <MovementSpeed>k__BackingField: 15
     <DropSpeed>k__BackingField: 60
