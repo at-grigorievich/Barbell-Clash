@@ -1,6 +1,6 @@
 # Barbell-Clash
 
-Hypercasual Runner example.
+Hypercasual Runner prototype example.
 
 
 ## Screens:
