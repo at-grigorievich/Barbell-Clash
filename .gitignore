@@ -61,3 +61,6 @@ crashlytics-build.properties
 /BarbellClash/Assets/StorePackages
 /BarbellClash/Assets/Sprites
 /BarbellClash/Assets/Models
+*.mp4
+*.jpg
+*.veg
