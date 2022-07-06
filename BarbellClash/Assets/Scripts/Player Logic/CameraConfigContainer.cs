@@ -6,15 +6,13 @@ namespace PlayerLogic
     [Serializable]
     public class CameraConfigContainer
     {
-        [SerializeField] private Vector3 _position;
-        [SerializeField] private Vector3 _rotation;
-        [SerializeField] private float _fov;
-
-        public void SetupCamera(Camera cam)
-        {
-            cam.transform.position = _position;
-            cam.transform.rotation = Quaternion.Euler(_rotation);
-            cam.fieldOfView = _fov;
-        }
+        [field: SerializeField] 
+        public Vector3 CamPosition { get; private set; }
+        
+        [field: SerializeField] 
+        public Vector3 CamRotation { get; private set; }
+        
+        [field: SerializeField] 
+        public float Fov { get; private set; }
     }
 }

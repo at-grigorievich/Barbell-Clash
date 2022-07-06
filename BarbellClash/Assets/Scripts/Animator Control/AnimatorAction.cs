@@ -7,6 +7,10 @@
         Run,
         Fall,
         Fight,
-        Death
+        Death,
+        Crush,
+        Squat,
+        Win,
+        Lose
     }
 }

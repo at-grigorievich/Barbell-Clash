@@ -5,6 +5,7 @@ namespace ATG.LevelControl
     public class ATGLevelStatus: ILevelStatus
     {
         public event EventHandler OnLevelStart;
+        public event EventHandler OnDebriefStart;
         public event EventHandler OnCompleteLevel;
         public event EventHandler OnFailedLevel;
         
@@ -21,6 +22,11 @@ namespace ATG.LevelControl
         public virtual void FailedLevel()
         {
             OnFailedLevel?.Invoke(this,null);
+        }
+
+        public void StartDebrief()
+        {
+            OnDebriefStart?.Invoke(this,null);
         }
     }
 }

@@ -5,12 +5,14 @@ namespace ATG.LevelControl
     public interface ILevelStatus
     {
         event EventHandler OnLevelStart;
+        event EventHandler OnDebriefStart;
         event EventHandler OnCompleteLevel;
         event EventHandler OnFailedLevel;
 
         public void StartLevel();
         public void CompleteLevel();
         public void FailedLevel();
+        public void StartDebrief();
 
     }
 }

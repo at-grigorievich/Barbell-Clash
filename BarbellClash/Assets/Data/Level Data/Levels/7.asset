@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f97094bda1b48fa409e3510757b70e1e, type: 3}
+  m_Name: 7
+  m_EditorClassIdentifier: 
+  id: 7
+  name: 
+  _levelType: 2
+  _blocks:
+  - {fileID: 6768989904039971223, guid: b3403af408816ce489a10b905a80e570, type: 3}
+  - {fileID: 4321737166604718202, guid: f60ce4bdd0654a0488fe90a55b3e0cf8, type: 3}
+  - {fileID: 2952014750779589667, guid: 025587b62a1ea134aab47644416fa08e, type: 3}
+  - {fileID: 4321737166604718202, guid: 5a923c445bc97d144a30b4639f4230d0, type: 3}
+  - {fileID: 4321737166604718202, guid: 5a923c445bc97d144a30b4639f4230d0, type: 3}
+  - {fileID: 4321737166604718202, guid: 2f825dc3b71407f4883f6e1cdb604c01, type: 3}
+  - {fileID: -6951386601776898492, guid: 965a17ea5ecdc53448b29e7cb022a83c, type: 3}
+  - {fileID: 4321737166604718202, guid: 25af26eed2fc0894782f421cb6dd0c5b, type: 3}
+  - {fileID: 4321737166604718202, guid: 25af26eed2fc0894782f421cb6dd0c5b, type: 3}
+  - {fileID: 4321737166604718202, guid: 2f825dc3b71407f4883f6e1cdb604c01, type: 3}
+  - {fileID: -6951386601776898492, guid: 8f439147ea50a064eae32d065390d6e2, type: 3}
+  - {fileID: 4321737166604718202, guid: 2f825dc3b71407f4883f6e1cdb604c01, type: 3}
+  - {fileID: 4321737166604718202, guid: 25af26eed2fc0894782f421cb6dd0c5b, type: 3}
+  - {fileID: 4321737166604718202, guid: 2f825dc3b71407f4883f6e1cdb604c01, type: 3}
+  - {fileID: 4321737166604718202, guid: 25af26eed2fc0894782f421cb6dd0c5b, type: 3}
+  - {fileID: 6768989904039971223, guid: b3403af408816ce489a10b905a80e570, type: 3}
+  - {fileID: 2952014750779589667, guid: 39cb980f094ac51428e1ee25bfe61ddc, type: 3}
+  - {fileID: -6951386601776898492, guid: 6e33ef7acf1d3e549ba9d690e198711d, type: 3}
+  - {fileID: 4321737166604718202, guid: 3522ce52f02b45548be28b8a91761138, type: 3}
+  - {fileID: 4321737166604718202, guid: 3522ce52f02b45548be28b8a91761138, type: 3}
+  - {fileID: -6951386601776898492, guid: 965a17ea5ecdc53448b29e7cb022a83c, type: 3}
+  - {fileID: 4321737166604718202, guid: 3522ce52f02b45548be28b8a91761138, type: 3}
+  - {fileID: 4321737166604718202, guid: 25af26eed2fc0894782f421cb6dd0c5b, type: 3}
+  - {fileID: 4321737166604718202, guid: f60ce4bdd0654a0488fe90a55b3e0cf8, type: 3}
+  - {fileID: -6951386601776898492, guid: 6e33ef7acf1d3e549ba9d690e198711d, type: 3}
+  - {fileID: 4321737166604718202, guid: 5a923c445bc97d144a30b4639f4230d0, type: 3}
+  - {fileID: 4321737166604718202, guid: 2f825dc3b71407f4883f6e1cdb604c01, type: 3}
+  - {fileID: 4321737166604718202, guid: 2f825dc3b71407f4883f6e1cdb604c01, type: 3}
+  - {fileID: 4321737166604718202, guid: f60ce4bdd0654a0488fe90a55b3e0cf8, type: 3}
+  - {fileID: 4321737166604718202, guid: f60ce4bdd0654a0488fe90a55b3e0cf8, type: 3}
+  - {fileID: 4321737166604718202, guid: f60ce4bdd0654a0488fe90a55b3e0cf8, type: 3}
+  - {fileID: 5908639423168397451, guid: f621f78e553bc12488e79b44cc2c6ba7, type: 3}
+  - {fileID: 5978914188097387927, guid: 8d87766a2933480449689ca853e8e096, type: 3}
+  - {fileID: 5978914188097387927, guid: 53e752206619aae4a8c8deeec76d477d, type: 3}
+  - {fileID: 5978914188097387927, guid: b4855e0bef5eed948a00a7d6b4b68e10, type: 3}
+  - {fileID: 5978914188097387927, guid: e7ea963cc22654d4f865c2e6b806b77c, type: 3}
+  - {fileID: 5978914188097387927, guid: 15acf1136a9197044aa9603f8f8f3b11, type: 3}
+  - {fileID: 5978914188097387927, guid: 6576b8a208ee5f642b81bca0ccdc77ce, type: 3}
+  - {fileID: 5978914188097387927, guid: 6de4ccaa33e8ef444927ccaa5c742cdd, type: 3}
+  - {fileID: 5978914188097387927, guid: c1c00f648de4d584caad0689de1356ac, type: 3}
+  - {fileID: 5978914188097387927, guid: 4f2a21644a7277144aa0416bb89415e4, type: 3}
+  - {fileID: 5978914188097387927, guid: ddc9e7ae1e85663429723450291bf976, type: 3}
+  <BarbellInitialConfig>k__BackingField:
+    _barbellPrefab: {fileID: 9221488013398396889, guid: 63d10146db9b73e468da677faea02e52, type: 3}
+    _position: {x: 0, y: 9, z: 6.07}
+    _rotation: {x: 0, y: 0, z: 0}
+  <CameraInitialConfig>k__BackingField:
+    <CamPosition>k__BackingField: {x: 9.5, y: 19, z: 1.49}
+    <CamRotation>k__BackingField: {x: 40.4, y: 326.1, z: 0}
+    <Fov>k__BackingField: 82

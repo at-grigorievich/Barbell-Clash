@@ -12,11 +12,13 @@ namespace Barbell
         [SerializeField] private Vector3 _position;
         [SerializeField] private Vector3 _rotation;
 
-        public BarbellLogic InstantiateBarbell()
+        public BarbellLogic InstantiateBarbell(BarbellLogic.Factory factory)
         {
-            BarbellLogic instance =
-                GameObject.Instantiate(_barbellPrefab, _position, Quaternion.Euler(_rotation));
 
+            BarbellLogic instance = factory.Create(_barbellPrefab);
+            instance.transform.position = _position;
+            instance.transform.rotation = Quaternion.Euler(_rotation);
+            
             return instance;
         }
     }
