@@ -1,6 +1,6 @@
 # Barbell-Clash
+Hypercasual Runner example.
 
-![alt-text](https://play-lh.googleusercontent.com/wq-VevtL5_QmyJ-6aDLhKS-OxM2amhCIt-CKyE-w3J-Z-jybes4xdp_yCJ3XaZDxtsI=w240-h480-rw "logo")
 
 ## Screens:
 
